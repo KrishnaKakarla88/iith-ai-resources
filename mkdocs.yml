@@ -1,0 +1,42 @@
+site_name: ShopSense Knowledge Base
+docs_dir: knowledge-base
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+plugins:
+  - search
+  - roamlinks
+
+extra_javascript:
+  - javascripts/external-links.js
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+
+nav:
+  - Start Here: index.md
+  - _smoketest:
+      - Root link test: _smoketest/root-link-test.md
+      - Nested link test: _smoketest/nested/nested-link-test.md
+  - 00 AI & LLM Basics:
+      - Tokens & Tokenization: 00-ai-and-llm-basics/tokens-and-tokenization.md
+  - 06 RAG:
+      - Chunking: 06-rag/chunking.md

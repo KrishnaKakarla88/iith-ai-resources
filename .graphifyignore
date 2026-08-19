@@ -1,0 +1,11 @@
+# graphify knowledge-graph exclusions
+# Patterns are gitignore-style; matched against paths relative to repo root.
+
+# Read-only historical reference (AGENTS.md: "never import from it") — including
+# it in the graph causes name collisions (e.g. order_agent.py) that resolve to
+
+# Data/artifacts, not source of truth for architecture
+data/
+
+# Generated graph output itself
+graphify-out/
