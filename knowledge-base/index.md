@@ -1,4 +1,4 @@
-# Applied AI Engineering
+# Applied AI Engineering — August 2026 Cohort
 
 A topic-first reference for the AI-agent stack behind applied agentic systems, grounded in the ShopSense/Kartway capstone as its running example, written for a reader who knows basic Python but nothing about this stack yet. Read [[capstone-milestone-map]] alongside it to see how each concept lands in the capstone.
 
