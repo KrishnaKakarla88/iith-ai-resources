@@ -1,6 +1,7 @@
 site_name: ShopSense Knowledge Base
 site_url: https://krishnakakarla88.github.io/iith-ai-resources/
 docs_dir: knowledge-base
+copyright: Built by Krishna Kakarla
 theme:
   name: material
   palette:
