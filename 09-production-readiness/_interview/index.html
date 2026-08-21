@@ -1,0 +1,4211 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://krishnakakarla88.github.io/iith-ai-resources/09-production-readiness/_interview/">
+      
+      
+        <link rel="prev" href="../putting-it-all-together/">
+      
+      
+        <link rel="next" href="../../10-interview-preparation/interview-prep-overview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Interview fire round - ShopSense Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#09-production-readiness-interview-fire-round" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ShopSense Knowledge Base" class="md-header__button md-logo" aria-label="ShopSense Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ShopSense Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interview fire round
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ShopSense Knowledge Base" class="md-nav__button md-logo" aria-label="ShopSense Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ShopSense Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../capstone-milestone-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone Milestone Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 AI & LLM Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    00 AI & LLM Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/what-is-an-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is an LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/tokens-and-tokenization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokens & Tokenization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/how-llms-generate-text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How LLMs Generate Text
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/context-windows-and-limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Windows & Limits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/prompting-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompting Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/prompt-engineering-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering Techniques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/context-rot-and-long-context-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Rot & Long-Context Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/model-selection-cost-latency-tradeoffs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Selection Cost/Latency Tradeoffs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/fine-tuning-vs-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning vs RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/architecture-of-an-agentic-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture of an Agentic System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-and-llm-basics/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 Python Refresher
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 Python Refresher
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-python-refresher/python-data-types-and-mutability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types & Mutability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-python-refresher/lists-tuples-sets-dicts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists, Tuples, Sets, Dicts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-python-refresher/functions-args-kwargs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions, Args, Kwargs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-python-refresher/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 Python for AI Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 Python for AI Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-python-for-ai-agents/type-hints-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Hints Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-python-for-ai-agents/pydantic-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pydantic Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-python-for-ai-agents/decorators-and-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decorators & Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-python-for-ai-agents/async-await-for-llm-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async/Await for LLM Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-python-for-ai-agents/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/env-secrets-and-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Env, Secrets & Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/raw-llm-clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raw LLM Clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/litellm-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LiteLLM Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/litellm-as-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LiteLLM as a Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/structured-output-repair-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output Repair Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/streaming-responses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Streaming Responses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/rate-limits-quotas-and-caching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rate Limits, Quotas & Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-foundations/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Tool Calling & Single Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 Tool Calling & Single Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-tool-calling-single-agents/workflow-vs-agent-autonomy-spectrum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow vs Agent Autonomy Spectrum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-tool-calling-single-agents/agentic-loop-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Loop Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-tool-calling-single-agents/tool-calling-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Calling Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-tool-calling-single-agents/react-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ReAct Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-tool-calling-single-agents/reflection-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reflection Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-tool-calling-single-agents/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Memory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05 Memory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-memory/memory-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-memory/supermemory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supermemory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-memory/context-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-memory/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 RAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    06 RAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/chunking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/embeddings-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embeddings Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/bm25-sparse-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BM25 / Sparse Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/dense-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dense Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/hybrid-retrieval-rrf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Retrieval (RRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/qdrant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/reranking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/retrieval-eval-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retrieval Eval Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/grounded-answers-injection-defense/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grounded Answers & Injection Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-rag/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Orchestration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    07 Orchestration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/agent-topologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Topologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/graph-engineering-mindset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Engineering Mindset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langchain-vs-langgraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LangChain vs LangGraph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LangChain
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LangChain
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langchain/langchain-runnables-lcel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runnables & LCEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langchain/langchain-chains-vs-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chains vs Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langchain/langchain-tool-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LangGraph
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LangGraph
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-edges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-conditional-edges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conditional Edges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-graph-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-agentic-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/langgraph-checkpointing-hitl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpointing & HITL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/langgraph/idempotency-and-side-effects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idempotency & Side Effects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-orchestration/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 Multi-Agent Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    08 Multi-Agent Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-multi-agent-systems/supervisor-worker-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervisor-Worker Teams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-multi-agent-systems/mcp-fastmcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP & FastMCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-multi-agent-systems/agent-protocols-a2a-ap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Protocols (A2A/AP2/AG-UI)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-multi-agent-systems/auth-and-multi-tenancy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Auth & Multi-Tenancy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-multi-agent-systems/_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 Production Readiness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    09 Production Readiness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-agent-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing Agent Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../langfuse-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Langfuse Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-and-pii-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy & PII Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../retry-fallback-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retry & Fallback Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuit-breaker-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Circuit Breaker Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eval-driven-development-mindset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development Mindset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deterministic-scorers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deterministic Scorers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-judges-eval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Judges for Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guardrails-injection-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guardrails & Injection Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastAPI Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment-packaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Packaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../putting-it-all-together/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Putting It All Together
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview fire round
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#testing-agent-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testing-agent-code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langfuse-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        langfuse-tracing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-pii-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        privacy-and-pii-handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retry-fallback-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        retry-fallback-patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-breaker-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        circuit-breaker-pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval-driven-development-mindset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval-driven-development-mindset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deterministic-scorers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deterministic-scorers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-judges-eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        llm-judges-eval
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guardrails-injection-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        guardrails-injection-detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fastapi-fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deployment-packaging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        putting-it-all-together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harder-real-interview-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harder / real-interview-style
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Harder / real-interview-style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-vs-eval-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing vs. eval boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing-cost-and-silent-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracing, cost, and silent failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-fallback-and-circuit-breaker-incident-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry, fallback, and circuit-breaker incident scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval-guardrails-and-judge-agreement-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eval, guardrails, and judge-agreement scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi-deployment-and-shipping-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI, deployment, and shipping decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    10 Interview Preparation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-interview-preparation/interview-prep-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-interview-preparation/round-1-fundamentals-rapid-fire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Round 1: Fundamentals Rapid-Fire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-interview-preparation/round-2-system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Round 2: System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-interview-preparation/round-3-production-reliability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Round 3: Production & Reliability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-interview-preparation/round-4-coding-and-debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Round 4: Coding & Debugging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-interview-preparation/round-5-behavioral-and-tradeoffs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Round 5: Behavioral & Tradeoffs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#testing-agent-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        testing-agent-code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langfuse-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        langfuse-tracing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-pii-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        privacy-and-pii-handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retry-fallback-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        retry-fallback-patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-breaker-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        circuit-breaker-pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval-driven-development-mindset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval-driven-development-mindset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deterministic-scorers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deterministic-scorers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-judges-eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        llm-judges-eval
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guardrails-injection-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        guardrails-injection-detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fastapi-fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deployment-packaging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        putting-it-all-together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harder-real-interview-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harder / real-interview-style
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Harder / real-interview-style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-vs-eval-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing vs. eval boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing-cost-and-silent-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracing, cost, and silent failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-fallback-and-circuit-breaker-incident-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry, fallback, and circuit-breaker incident scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eval-guardrails-and-judge-agreement-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eval, guardrails, and judge-agreement scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi-deployment-and-shipping-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI, deployment, and shipping decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="09-production-readiness-interview-fire-round">09-production-readiness — interview fire round</h1>
+<h3 id="testing-agent-code">testing-agent-code</h3>
+<ul>
+<li><strong>Q: Why not just eval the agent instead of unit-testing individual nodes?</strong>
+  A: Eval measures whether the agent's <em>behavior</em> is good against a golden dataset — slower, often non-deterministic, and answers a quality question. Unit tests measure whether a specific piece of code does what you intended — fast, deterministic, and catch a broken router or a crashing parser long before an eval run would even notice. See <a href="../eval-driven-development-mindset/">eval-driven-development-mindset</a> for the eval side.</li>
+<li><strong>Q: Why does it matter <em>where</em> you patch a shared <code>call_llm</code> helper?</strong>
+  A: <code>patch</code>/<code>monkeypatch</code> replace a name in a specific module's namespace, not the function's original definition everywhere it's imported. If two callers each did <code>from llm_helpers import call_llm</code>, patching <code>llm_helpers.call_llm</code> won't affect a caller that already imported its own local reference — you have to patch the name where the code under test looks it up.</li>
+</ul>
+<h3 id="langfuse-tracing">langfuse-tracing</h3>
+<ul>
+<li><strong>Q: Why does a <code>generation</code> span need explicit <code>usage_details</code>, when a <code>span</code> doesn't?</strong>
+  A: Cost only computes from token counts. A plain <code>span</code> has no token concept; a <code>generation</code> span needs <code>model</code> and <code>usage_details</code> wired from the actual response object, because the SDK's built-in per-model price table can't reliably resolve every provider-prefixed model name.</li>
+<li><strong>Q: Why compare traced vs. untraced latency instead of just reporting the traced number?</strong>
+  A: Every span costs real wall-clock overhead — object creation, attribute recording, eventual flush. On fast operations that overhead can dominate the numbers; report the untraced median as the system's real latency, and the delta as a separate, also-interesting fact about instrumentation cost.</li>
+</ul>
+<h3 id="privacy-and-pii-handling">privacy-and-pii-handling</h3>
+<ul>
+<li><strong>Q: Why redact "before it leaves the process" rather than in the dashboard/storage layer?</strong>
+  A: Once PII reaches a log/trace/storage backend, removing it means finding and scrubbing every copy — the dashboard, backups, any downstream consumer. Stripping it in application memory before transmission means it never exists in those places at all.</li>
+<li><strong>Q: Why is an allowlist safer than a denylist for what gets logged from a shared state object?</strong>
+  A: A denylist has to correctly anticipate every PII-shaped field, including ones added later by someone who doesn't know about the redaction rule. An allowlist inverts the failure mode — a newly added field is blocked by default until someone deliberately marks it safe, rather than leaked by default until someone notices.</li>
+</ul>
+<h3 id="retry-fallback-patterns">retry-fallback-patterns</h3>
+<ul>
+<li><strong>Q: Why doesn't a retry loop fix a malformed response?</strong>
+  A: <code>retry_if_exception_type</code> only fires on raised exceptions — malformed data is a successful call that returned the wrong shape, not an exception. Retrying it just re-rolls the same bad odds; it has to be checked and handled as a separate case (fallback), not retried.</li>
+<li><strong>Q: Why exponential backoff instead of a fixed delay between retries?</strong>
+  A: A fixed delay across many clients synchronizes into a thundering herd — everyone retries at the same moment and re-overloads the dependency. Waiting longer each attempt (ideally with jitter) protects a struggling dependency instead of piling onto it.</li>
+</ul>
+<h3 id="circuit-breaker-pattern">circuit-breaker-pattern</h3>
+<ul>
+<li><strong>Q: Why exactly one trial call in <code>half_open</code>, not a few?</strong>
+  A: <code>half_open</code> exists to test recovery without guessing — allowing multiple trial calls risks sending a burst of traffic back at a dependency that's still down, defeating the point of the breaker. One call, and any failure re-opens immediately.</li>
+<li><strong>Q: When does a circuit breaker help that a retry alone doesn't?</strong>
+  A: During a <em>sustained</em> outage. Retries still pay the full retry budget (multiple attempts with backoff) on every request against a dead dependency — a breaker stops that spend entirely once it opens, protecting both the caller's latency and the dependency from a retry storm while it's down.</li>
+</ul>
+<h3 id="eval-driven-development-mindset">eval-driven-development-mindset</h3>
+<ul>
+<li><strong>Q: Why can a system with a 100% "final answer correct" score still be broken?</strong>
+  A: The final-answer score doesn't tell you whether the layers underneath (tool use, retrieval, planning) were actually right — two wrong steps can still coincidentally land on a correct-looking answer, and you won't find out until the layers diverge on a case that doesn't get lucky.</li>
+<li><strong>Q: Your LLM judge agrees with human labels 87% of the time. Which disagreement direction should worry you more?</strong>
+  A: Judge-says-PASS/human-says-FAIL — that's the judge certifying a bad answer as good, which is invisible unless you specifically audit for it. Judge-says-FAIL/human-says-PASS just costs you a false alarm you'll notice.</li>
+<li><strong>Q: How is eval different from the unit tests in <a href="../testing-agent-code/">testing-agent-code</a>?</strong>
+  A: Unit tests check code correctness with the LLM call mocked out — deterministic, pass/fail on logic. Eval checks the <em>quality of the LLM's actual behavior</em> against a golden set — probabilistic, scored, and the LLM call is exactly the thing being measured.</li>
+</ul>
+<h3 id="deterministic-scorers">deterministic-scorers</h3>
+<ul>
+<li><strong>Q: Why run a deterministic scorer at all if you already have LLM judges?</strong>
+  A: LLM-judge scoring is noisy and can be wrong in ways that are hard to detect on its own — a deterministic scorer gives you a cheap, reproducible independent signal. When the two disagree, that disagreement is exactly the case worth reading by hand.</li>
+<li><strong>Q: Why does <code>tool_match_score</code> give no partial credit but <code>answer_keyword_score</code> does?</strong>
+  A: A tool call with the wrong argument isn't a partially-correct action — it's the wrong call, full stop. A written answer can legitimately capture most of the required information without literally containing every golden keyword, so partial credit reflects that better.</li>
+</ul>
+<h3 id="llm-judges-eval">llm-judges-eval</h3>
+<ul>
+<li><strong>Q: Why run three separate LLM-judge frameworks instead of picking one?</strong>
+  A: Each judge is a model with its own blind spots. If all three independently agree an answer is faithful, that's stronger evidence than any single judge's opinion; when they disagree, that's a specific signal to read the transcript by hand rather than trust any one number.</li>
+<li><strong>Q: You audit a judge and get 87.5% agreement with human labels. Is that framework good enough to ship?</strong>
+  A: The number alone doesn't say — you have to look at <em>which</em> direction the disagreements ran. Judge-says-PASS/human-says-FAIL is the expensive direction (bad output certified as good, invisible without an audit); judge-says-FAIL/human-says-PASS just costs a false alarm you'll catch immediately.</li>
+<li><strong>Q: Why does Ragas's <code>ToolCallAccuracy</code> sit inside an "LLM judge" library if it's deterministic?</strong>
+  A: Because it scores a different signal (tool-call correctness) that happens not to need a model call — pure name+argument comparison — while the library's other metrics (<code>Faithfulness</code>, <code>ContextPrecision</code>) genuinely need an LLM to judge semantic entailment. It's grouped by product, not by mechanism.</li>
+</ul>
+<h3 id="guardrails-injection-detection">guardrails-injection-detection</h3>
+<ul>
+<li><strong>Q: Why scan retrieved documents for injection, not just the user's query?</strong>
+  A: Anything the agent treats as trusted context — including a document your own retriever returned — is a vector for an attacker who managed to get content into the corpus. A poisoned document is functionally the same attack as a poisoned prompt.</li>
+<li><strong>Q: A guardrail blocks 23% of legitimate questions and nobody complains. Is it working?</strong>
+  A: Not necessarily — false rejections are the guardrail failure mode nobody files a ticket about. You only find out by measuring the false-rejection rate against a golden set with known-good cases, the same discipline used for eval.</li>
+<li><strong>Q: Why does a schema constraint on <code>route</code> count as a guardrail rather than just data validation?</strong>
+  A: Because an out-of-schema route is exactly the kind of hallucination that would otherwise reach code expecting one of a fixed set of values — the guardrail's job here is to fail loud (reject the response) rather than let a fabricated value propagate downstream.</li>
+</ul>
+<h3 id="fastapi-fundamentals">fastapi-fundamentals</h3>
+<ul>
+<li><strong>Q: Why does FastAPI's async support matter more for an agent endpoint than for a typical CRUD API?</strong>
+  A: An agent endpoint spends nearly all its wall-clock time waiting on external I/O — an LLM call, a vector search, a tool call — not doing CPU work. <code>async def</code> handlers let one worker serve other requests during that wait instead of blocking on it, which a synchronous WSGI framework can't do without more workers/processes.</li>
+<li><strong>Q: Why does <code>ChatResponse</code> deliberately omit fields like <code>tool_call</code> and <code>plan_reasoning</code> that the trace dict contains?</strong>
+  A: A <code>response_model</code> isn't just documentation — it filters what actually gets serialized back to the caller. Internal trace fields aren't part of the public API contract, and leaving them in <code>response_model</code> would silently promote implementation detail into a stable-looking API surface.</li>
+</ul>
+<h3 id="deployment-packaging">deployment-packaging</h3>
+<ul>
+<li><strong>Q: Why can't you just share the ngrok URL with teammates once and be done?</strong>
+  A: Free-tier ngrok URLs are ephemeral — they change every time the tunnel restarts. Sharing a Postman Collection (which re-points to whatever URL is current) survives restarts; sharing a bare URL doesn't.</li>
+<li><strong>Q: What's the actual difference between "the demo runs" and "ready to ship," per the course framing?</strong>
+  A: A demo proves the agent can produce a right answer once. Ready-to-ship is a documented package — the agent's job and limits, an evaluation report, an operational runbook, and honestly-stated known limitations — that a team can sign off on, not just a working process on someone's laptop.</li>
+<li><strong>Q: Why validate required env vars at process startup instead of wherever they're first used?</strong>
+  A: A config error caught at startup fails loud and immediately, before any traffic is served. The same error caught lazily on first use surfaces as a random user's request failing, possibly hours after deploy — see <a href="../../03-foundations/env-secrets-and-config/">env-secrets-and-config</a>.</li>
+</ul>
+<h3 id="putting-it-all-together">putting-it-all-together</h3>
+<ul>
+<li><strong>Q: Walk me through what happens between a user's message arriving and a response going back, for a system with RAG, tools, and multi-agent orchestration.</strong>
+  A: Intake validates the request at the API boundary; identity comes from the session, never the message text; a planning step routes to tool and/or retrieval; tools execute deterministically while retrieval embeds, searches, and reranks; an orchestration layer coordinates multiple specialized agents and handles any human-in-the-loop step; guardrails check the final answer independent of whether it's <em>good</em>; every hop is a traced span under one trace ID; and the API layer returns a filtered response — while eval and reliability protections (retries, circuit breakers, golden-set scoring) sit around the whole path rather than on it.
+  A: (See the Core mechanics numbered list above for the full nine-hop breakdown.)</li>
+<li><strong>Q: Why is the trace dict from the eval notebook the same shape referenced in the tracing and guardrail layers?</strong>
+  A: Keeping one trace structure that every layer writes into and every scorer/guardrail reads from is what keeps component boundaries clean — a change to how tool calls are recorded doesn't require updating three separate representations, and it's exactly what makes a request both debuggable (tracing) and gradable (eval) from the same object.</li>
+</ul>
+<h2 id="harder-real-interview-style">Harder / real-interview-style</h2>
+<p>Grounded in 2026 web-researched interview material on LLM observability, eval/guardrails, and resilience patterns (search terms: "LLM observability eval guardrails interview questions production AI agents 2026", "circuit breaker retry pattern interview questions distributed systems production incident"), cross-referenced against <a href="https://www.confident-ai.com/blog/ai-agent-observability">Confident AI's AI agent observability guide</a> and general microservices resilience-pattern interview coverage, plus this stage's own pages — <a href="../testing-agent-code/">testing-agent-code</a>, <a href="../langfuse-tracing/">langfuse-tracing</a>, <a href="../privacy-and-pii-handling/">privacy-and-pii-handling</a>, <a href="../retry-fallback-patterns/">retry-fallback-patterns</a>, <a href="../circuit-breaker-pattern/">circuit-breaker-pattern</a>, <a href="../eval-driven-development-mindset/">eval-driven-development-mindset</a>, <a href="../deterministic-scorers/">deterministic-scorers</a>, <a href="../llm-judges-eval/">llm-judges-eval</a>, <a href="../guardrails-injection-detection/">guardrails-injection-detection</a>, <a href="../fastapi-fundamentals/">fastapi-fundamentals</a>, <a href="../deployment-packaging/">deployment-packaging</a>. This repo's labs use Langfuse SDK v4 (<code>get_client()</code>, <code>start_as_current_observation</code>) per <code>plan.md</code>'s version-skew note — treat older <code>Langfuse()</code>/decorator-only tutorials as describing a superseded API surface.</p>
+<h3 id="testing-vs-eval-boundary">Testing vs. eval boundary</h3>
+<ul>
+<li>
+<p><strong>Q: A PR passes all unit tests and the CI eval suite shows no regression, but a customer reports the agent gave a policy-violating answer in production the same day. How is this possible, and what does it tell you about your test/eval coverage?</strong>
+  A: Unit tests check code correctness with the LLM mocked out, and eval checks quality against a fixed golden set — neither is a live production monitor. The gap is coverage: the golden set didn't contain a case resembling what the customer hit, and no unit test encodes "policy violations are impossible" because that's precisely the LLM-generated behavior unit tests intentionally don't exercise. This is the argument for online eval/production tracing (per <a href="../langfuse-tracing/">langfuse-tracing</a>) layered on top of offline unit tests and golden-set eval — the golden set catches known failure shapes, but only live tracing plus sampling-based review catches a shape nobody wrote a golden case for yet.</p>
+</li>
+<li>
+<p><strong>Q: You mock <code>call_llm</code> in a test and it silently doesn't take effect — the test hits the real API. What's the most likely cause, and why doesn't the mocking library warn you?</strong>
+  A: <code>patch</code>/<code>monkeypatch</code> replace a name in a specific module's namespace, not the function's original definition everywhere it's referenced — if the code under test did <code>from llm_helpers import call_llm</code> into its own module namespace, patching <code>llm_helpers.call_llm</code> doesn't touch that already-imported local reference. There's no warning because, from the patching library's point of view, it successfully patched exactly the name it was told to — the bug is a mismatch between where the name is <em>defined</em> and where the code under test actually <em>looks it up</em>, which is a Python import-semantics issue, not a testing-library defect.</p>
+</li>
+</ul>
+<h3 id="tracing-cost-and-silent-failures">Tracing, cost, and silent failures</h3>
+<ul>
+<li>
+<p><strong>Q: A team adds Langfuse tracing broadly by wrapping every function with a tracing decorator that <code>repr()</code>s its arguments onto the span. Weeks later, a security review finds full customer chat transcripts sitting in the tracing dashboard's default retention. How did this happen, and what's the actual fix?</strong>
+  A: A blanket instrumentation decorator has no concept of which arguments are sensitive — it captures everything indiscriminately, and raw chat text (which routinely contains PII, order details, account info) ends up on spans by default with no explicit choice ever made to put it there. Per <a href="../langfuse-tracing/">langfuse-tracing</a> and <a href="../privacy-and-pii-handling/">privacy-and-pii-handling</a>, the fix is redacting or allowlisting what gets attached to a span <em>before</em> it leaves the process — an allowlist of specifically-approved fields, not a denylist of "known bad" ones — because once PII reaches the tracing backend, scrubbing it means finding and removing every copy (dashboard, backups, downstream consumers), not just fixing the code going forward.</p>
+</li>
+<li>
+<p><strong>Q: Your agent's per-call cost dashboard shows a sudden 40% jump with no corresponding traffic increase. Walk through how you'd diagnose it using tracing data alone.</strong>
+  A: Start from the <code>generation</code> spans specifically, since only those carry <code>usage_details</code> and <code>model</code> — a cost anomaly usually traces to either a model routing change (calls silently falling back to a pricier model), a prompt-length regression (context growing per call, e.g. a broken compression step per <a href="../../05-memory/context-compression/">context-compression</a>), or a retry storm (failed calls being retried more than expected, multiplying billed tokens per logical request). Comparing token counts and model names per trace before and after the jump, rather than just the aggregate dollar figure, is what actually localizes which of those three it is — the dashboard total alone can't distinguish "more expensive calls" from "more calls."</p>
+</li>
+<li>
+<p><strong>Q: Why would you deliberately run a small number of canary queries against a production RAG system on a schedule, even when nothing has changed and no alerts have fired?</strong>
+  A: Canary queries exist to catch <em>silent</em> failures — a corpus re-index that quietly drops a document class, a retriever regressing on a query type nobody's asked recently, or a refusal-rate creeping up in either direction (over-refusing legitimate queries, or under-refusing ones that should be blocked) — none of which necessarily throws an exception or fails a health check. A system can be "up" by every infrastructure metric while silently answering worse, and a scheduled canary is one of the only ways to detect that class of failure before a customer does, rather than relying on someone noticing a metric drift after the fact.</p>
+</li>
+</ul>
+<h3 id="retry-fallback-and-circuit-breaker-incident-scenarios">Retry, fallback, and circuit-breaker incident scenarios</h3>
+<ul>
+<li>
+<p><strong>Q: On-call gets paged: a downstream LLM provider is having a partial outage, and your service's latency has spiked to 30x normal even though the error rate is only slightly elevated. Retries are configured with exponential backoff. What's actually happening, and is the retry config itself the bug?</strong>
+  A: This is the classic failure mode retries alone don't solve: during a <em>sustained</em> outage, every request still pays the full retry budget (several attempts with growing backoff) against a dependency that's mostly failing, so overall latency balloons even though each individual retry is "working as configured." The retry config isn't wrong in isolation — the missing piece is a circuit breaker that stops paying the retry cost entirely once failures cross a threshold, short-circuiting to a fallback (cached response, degraded mode, or a fast fail) instead of exhausting the retry budget on every request during a known-bad window, per <a href="../circuit-breaker-pattern/">circuit-breaker-pattern</a>.</p>
+</li>
+<li>
+<p><strong>Q: Your circuit breaker's <code>half_open</code> state sends one trial call to test recovery, and it happens to fail due to an unrelated transient blip — the breaker re-opens and stays open for another full cooldown window even though the dependency was actually fine. Is this a bug, and how would you tune around it?</strong>
+  A: This is expected, conservative-by-design behavior, not a bug — <code>half_open</code> intentionally sends exactly one trial call rather than several, because allowing a burst of trial traffic risks re-overloading a dependency that might still be struggling, which would defeat the point of the breaker. The tuning lever isn't "send more trial calls" (that reintroduces the risk the single-call design avoids); it's tuning the cooldown duration and, separately, distinguishing transient-blip failures from sustained-outage failures in the trial call's own retry policy — a trial call itself can have a small retry budget before being counted as a breaker-relevant failure.</p>
+</li>
+<li>
+<p><strong>Q: A retry loop is correctly catching exceptions and retrying, but a malformed (successfully returned, schema-invalid) LLM response keeps reaching downstream code unhandled. Why doesn't the retry logic catch this?</strong>
+  A: <code>retry_if_exception_type</code>-style retry logic only fires on <em>raised exceptions</em> — a malformed response is a successful call that returned the wrong shape, not an exception, so the retry decorator never sees it as a failure to retry. Retrying it anyway would just re-roll the same bad odds on a model that's producing malformed output for a structural reason (bad prompt, wrong schema, a model change) — this has to be caught and handled as a distinct fallback/validation case (parse, validate against schema, then decide retry-vs-repair-vs-fail), not folded into the same retry path as network errors.</p>
+</li>
+</ul>
+<h3 id="eval-guardrails-and-judge-agreement-scenarios">Eval, guardrails, and judge-agreement scenarios</h3>
+<ul>
+<li>
+<p><strong>Q: Your LLM judge reports 96% pass rate on a golden set, matching the previous release. Two weeks later, a support escalation reveals the agent has been giving a subtly wrong answer to a common question the whole time. How did the eval suite miss this?</strong>
+  A: Either the golden set never contained a case shaped like the one that failed (coverage gap, not a judge-accuracy problem), or the judge is systematically agreeing with a wrong-but-plausible-sounding answer — i.e. the dangerous disagreement direction, judge-says-PASS on a case a human would mark FAIL. The fix for the first is expanding golden-set coverage from real production traffic, not just hand-authored cases; the fix for the second is periodically auditing judge output against human labels specifically looking for that PASS/FAIL-human-disagrees direction, since it's invisible unless you deliberately look for it — a stable aggregate pass rate over time is not the same claim as "the judge is still accurate."</p>
+</li>
+<li>
+<p><strong>Q: A guardrail that blocks prompt-injection attempts shows zero user complaints in a month. Is that evidence it's working correctly?</strong>
+  A: Not by itself — a guardrail's most dangerous failure mode, over-blocking legitimate queries, doesn't generate complaints the way under-blocking does, because a rejected user usually just leaves rather than filing a ticket explaining what they wanted. "Zero complaints" is consistent with either "working well" or "silently rejecting a meaningful fraction of legitimate traffic" — the only way to distinguish them is measuring false-rejection rate against a golden set of known-good queries, the same discipline used for eval scoring, not inferring correctness from an absence of tickets.</p>
+</li>
+<li>
+<p><strong>Q: Why would a production team run a deterministic scorer <em>and</em> three separate LLM-judge frameworks (e.g. Ragas, DeepEval, TruLens) on the same eval set, instead of picking the strongest one?</strong>
+  A: Each LLM judge is itself a model with its own blind spots and can be systematically wrong in ways that are hard to detect from its own output alone; a deterministic scorer (exact tool-call match, keyword presence) provides a cheap, reproducible independent signal that doesn't share those blind spots. When multiple independent judges agree an answer is faithful, that's meaningfully stronger evidence than any single judge's opinion; when they disagree, that specific disagreement is the highest-value case to read by hand — the point isn't redundancy for its own sake, it's converting "trust one number" into "trust a pattern of agreement, and specifically investigate disagreement."</p>
+</li>
+</ul>
+<h3 id="fastapi-deployment-and-shipping-decisions">FastAPI, deployment, and shipping decisions</h3>
+<ul>
+<li>
+<p><strong>Q: An agent's FastAPI endpoint works fine under a light load test but falls over under real concurrent traffic — requests start queuing and timing out even though CPU usage looks low. What's the likely cause?</strong>
+  A: If the handlers are defined <code>def</code> instead of <code>async def</code> for I/O-bound work (LLM calls, vector search, tool calls), a synchronous handler blocks its worker for the full duration of each external call, and low CPU usage with high queuing is exactly the signature of I/O-bound blocking rather than CPU exhaustion — the fix is <code>async def</code> handlers with <code>await</code>ed I/O calls so one worker can serve other requests during the wait, which is specifically why FastAPI's async support matters more for an agent endpoint than for a typical CRUD API doing mostly synchronous DB reads.</p>
+</li>
+<li>
+<p><strong>Q: What's the concrete difference between "the demo works" and being ready to hand this system to another team, and why does an interviewer care about this distinction specifically?</strong>
+  A: A demo proves the agent can produce a correct-looking answer once, under conditions the demo-runner controls; "ready to ship" means a documented package — the agent's actual job and stated limits, an evaluation report with real numbers, an operational runbook (what to do when it fails, who's paged), and honestly-stated known limitations — that another team can operate without the original author present. Interviewers ask this because it's the fastest way to distinguish someone who's built a working prototype from someone who's actually operated a system in production and knows what breaks when the original builder isn't in the room.</p>
+</li>
+<li>
+<p><strong>Q: Why validate required environment variables (API keys, DB URLs) at process startup rather than lazily at first use, and what's the actual production cost of getting this wrong?</strong>
+  A: A startup check fails loud and immediately, before any traffic is served, so a bad deploy is caught by the deploy process itself. A lazy check surfaces as a specific user's request failing at whatever point that code path first runs — which could be hours after deploy, for a rarely-hit code path, making the failure much harder to correlate back to "we deployed a config error this morning" — see <a href="../../03-foundations/env-secrets-and-config/">env-secrets-and-config</a>. The production cost isn't just a slower fix; it's a failure that looks like an intermittent bug rather than what it actually is, a deterministic config error that's only intermittent in <em>when it's first observed</em>.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/external-links.js"></script>
+      
+    
+  </body>
+</html>
