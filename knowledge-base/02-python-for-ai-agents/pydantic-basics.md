@@ -2,7 +2,7 @@
 stage: "02-python-for-ai-agents"
 tools: [pydantic]
 tags: [primer, pydantic, structured-output, validation]
-last_verified: 2026-08-20
+last_verified: 2026-08-21
 verified_against: "Pydantic v2 (see repo transitive dep via litellm/langgraph; API shown is v2 BaseModel)"
 ---
 
@@ -12,6 +12,7 @@ verified_against: "Pydantic v2 (see repo transitive dep via litellm/langgraph; A
 
 ## Prerequisites
 - [[type-hints-basics]]
+- [[dunder-methods]]
 
 ## In plain English
 
@@ -33,6 +34,20 @@ This is why structured LLM output and tool schemas in this stack are built as Py
 | `model_dump_json()` | instance → JSON string |
 
 `Model(**data)` is the validation boundary — everything before it is untrusted; everything after it is a typed, checked object.
+
+## The dunders Pydantic generates for you
+
+`BaseModel` is a plain Python class under the hood, and everything it "just does" — construction, printing, equality — is [[dunder-methods]] generated from your field declarations rather than hand-written:
+
+| Dunder | What `BaseModel` does with it |
+|---|---|
+| `__init__` | generated from the class's annotated fields — this is *why* `Invoice(**data)` works without you ever writing an `__init__`; it also runs full validation before any attribute is set, not after |
+| `__repr__` | shows every field as `name=value` (e.g. `Invoice(customer='Acme', line_items=[...])`) instead of `object`'s default `<Invoice object at 0x...>` — critical for reading a `ValidationError` traceback or a test failure diff |
+| `__eq__` | two instances are equal if they're the same model class **and** every field value matches — this is what makes `assert actual == expected` work directly on parsed model instances in a golden-eval test, with no custom comparison code |
+| `__iter__` | yields `(field_name, value)` pairs, which is why `dict(my_model)` works without calling `.model_dump()` |
+| `__setattr__` | re-validates the new value on every attribute assignment *if and only if* `model_config = ConfigDict(validate_assignment=True)` is set — off by default, since re-running validation on every assignment has a real perf cost |
+
+None of this is Pydantic-specific magic beyond the mechanism [[dunder-methods]] describes generally — `BaseModel` is simply generating these dunders from your annotated fields the same way `@dataclass` does, plus layering runtime validation on top.
 
 ## Sample code
 
@@ -109,7 +124,7 @@ The lab's repair loop (feed a `ValidationError` back into the prompt, retry) is 
 
 ## Related
 
-- **Builds on** — [[type-hints-basics]]
+- **Builds on** — [[type-hints-basics]], [[dunder-methods]]
 - **Feeds into** — [[structured-output-repair-loops]], [[guardrails-injection-detection]], [[mcp-fastmcp]]
 
 ## Sources

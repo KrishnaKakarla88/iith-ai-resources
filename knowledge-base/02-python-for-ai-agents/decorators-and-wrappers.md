@@ -106,7 +106,7 @@ The lab's retry/circuit-breaker decorators are hand-rolled to teach the mechanis
 
 ## Related
 
-- **Builds on** — [[functions-args-kwargs]]
+- **Builds on** — [[functions-args-kwargs]], [[dunder-methods]]
 - **Underlies** — [[retry-fallback-patterns]], [[circuit-breaker-pattern]], [[langfuse-tracing]]
 
 ## Sources

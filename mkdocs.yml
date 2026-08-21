@@ -57,6 +57,7 @@ nav:
       - Data Types & Mutability: 01-python-refresher/python-data-types-and-mutability.md
       - Lists, Tuples, Sets, Dicts: 01-python-refresher/lists-tuples-sets-dicts.md
       - Functions, Args, Kwargs: 01-python-refresher/functions-args-kwargs.md
+      - Dunder Methods: 01-python-refresher/dunder-methods.md
       - Interview fire round: 01-python-refresher/_interview.md
   - 02 Python for AI Agents:
       - Type Hints Basics: 02-python-for-ai-agents/type-hints-basics.md
