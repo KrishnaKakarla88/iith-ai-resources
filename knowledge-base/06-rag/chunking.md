@@ -62,7 +62,7 @@ Import note: `RecursiveCharacterTextSplitter` now lives in the standalone `langc
 
 ## How this shows up in the capstone
 
-Milestone 4 (production RAG + evaluation baseline) — chunking is Lab A of the RAG session, feeding the policy-RAG agent's ingestion pipeline directly; see `capstone-milestone-map.md`.
+Milestone 4 (production RAG + evaluation baseline) — chunking is Lab A of the RAG session, feeding the policy-RAG agent's ingestion pipeline directly; see [[capstone-milestone-map]].
 
 ## Interview fire round
 

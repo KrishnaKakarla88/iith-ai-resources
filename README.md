@@ -1,6 +1,20 @@
 # ShopSense — IITH Applied AI Capstone
 
-Multi-agent customer care/ops system for a fictional marketplace ("Kartway"), built module-by-module (single agent → resilience → tracing → multi-agent orchestration → MCP → FastAPI + guardrails). See [CLAUDE.md](CLAUDE.md) for the full build order and stack.
+Multi-agent customer care/ops system for a fictional marketplace ("Kartway"), built module-by-module (single agent → resilience → tracing → multi-agent orchestration → MCP → FastAPI + guardrails).
+
+## Repo map
+
+| Path | What it is |
+|---|---|
+| `/labs` | Course notebooks — fixed, never edited |
+| `/lab-summaries` | Condensed per-notebook reference generated from `/labs`, indexed at `INDEX.md` |
+| `/presentations` | Converted course slide decks, one file per day |
+| `/data` | Datasets the labs/capstone consume |
+| `/knowledge-base` | Topic-first revision/interview-prep reference — see below |
+| `CLAUDE.md` | Instructor-mode instructions for Claude Code: build order, stack, teaching loop |
+| `plan.md` | Source of truth for the `/knowledge-base` build (manifest + rationale) |
+
+See [CLAUDE.md](CLAUDE.md) for the full build order, stack, and repo layout detail.
 
 ## Knowledge base (revision / interview prep)
 

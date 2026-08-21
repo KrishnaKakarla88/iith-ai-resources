@@ -13,7 +13,6 @@ theme:
         name: Switch to light mode
   features:
     - navigation.instant
-    - navigation.sections
     - navigation.top
     - content.code.copy
 
@@ -33,10 +32,106 @@ markdown_extensions:
 
 nav:
   - Start Here: index.md
-  - _smoketest:
-      - Root link test: _smoketest/root-link-test.md
-      - Nested link test: _smoketest/nested/nested-link-test.md
+  - Capstone Milestone Map: capstone-milestone-map.md 
   - 00 AI & LLM Basics:
+      - What is an LLM: 00-ai-and-llm-basics/what-is-an-llm.md
       - Tokens & Tokenization: 00-ai-and-llm-basics/tokens-and-tokenization.md
+      - How LLMs Generate Text: 00-ai-and-llm-basics/how-llms-generate-text.md
+      - Context Windows & Limits: 00-ai-and-llm-basics/context-windows-and-limits.md
+      - Prompting Basics: 00-ai-and-llm-basics/prompting-basics.md
+      - Prompt Engineering Techniques: 00-ai-and-llm-basics/prompt-engineering-techniques.md
+      - Context Engineering: 00-ai-and-llm-basics/context-engineering.md
+      - Context Rot & Long-Context Management: 00-ai-and-llm-basics/context-rot-and-long-context-management.md
+      - Model Selection Cost/Latency Tradeoffs: 00-ai-and-llm-basics/model-selection-cost-latency-tradeoffs.md
+      - Fine-Tuning vs RAG: 00-ai-and-llm-basics/fine-tuning-vs-rag.md
+      - Architecture of an Agentic System: 00-ai-and-llm-basics/architecture-of-an-agentic-system.md
+      - Interview fire round: 00-ai-and-llm-basics/_interview.md
+  - 01 Python Refresher:
+      - Data Types & Mutability: 01-python-refresher/python-data-types-and-mutability.md
+      - Lists, Tuples, Sets, Dicts: 01-python-refresher/lists-tuples-sets-dicts.md
+      - Functions, Args, Kwargs: 01-python-refresher/functions-args-kwargs.md
+      - Interview fire round: 01-python-refresher/_interview.md
+  - 02 Python for AI Agents:
+      - Type Hints Basics: 02-python-for-ai-agents/type-hints-basics.md
+      - Pydantic Basics: 02-python-for-ai-agents/pydantic-basics.md
+      - Decorators & Wrappers: 02-python-for-ai-agents/decorators-and-wrappers.md
+      - Async/Await for LLM Apps: 02-python-for-ai-agents/async-await-for-llm-apps.md
+      - Interview fire round: 02-python-for-ai-agents/_interview.md
+  - 03 Foundations:
+      - Env, Secrets & Config: 03-foundations/env-secrets-and-config.md
+      - Raw LLM Clients: 03-foundations/raw-llm-clients.md
+      - LiteLLM Basics: 03-foundations/litellm-basics.md
+      - LiteLLM as a Gateway: 03-foundations/litellm-as-gateway.md
+      - Structured Output Repair Loops: 03-foundations/structured-output-repair-loops.md
+      - Streaming Responses: 03-foundations/streaming-responses.md
+      - Rate Limits, Quotas & Caching: 03-foundations/rate-limits-quotas-and-caching.md
+      - Interview fire round: 03-foundations/_interview.md
+  - 04 Tool Calling & Single Agents:
+      - Workflow vs Agent Autonomy Spectrum: 04-tool-calling-single-agents/workflow-vs-agent-autonomy-spectrum.md
+      - Agentic Loop Fundamentals: 04-tool-calling-single-agents/agentic-loop-fundamentals.md
+      - Tool Calling Fundamentals: 04-tool-calling-single-agents/tool-calling-fundamentals.md
+      - ReAct Pattern: 04-tool-calling-single-agents/react-pattern.md
+      - Reflection Pattern: 04-tool-calling-single-agents/reflection-pattern.md
+      - Interview fire round: 04-tool-calling-single-agents/_interview.md
+  - 05 Memory:
+      - Memory Types: 05-memory/memory-types.md
+      - Supermemory: 05-memory/supermemory.md
+      - Context Compression: 05-memory/context-compression.md
+      - Interview fire round: 05-memory/_interview.md
   - 06 RAG:
+      - Ingestion: 06-rag/ingestion.md
       - Chunking: 06-rag/chunking.md
+      - Embeddings Models: 06-rag/embeddings-models.md
+      - BM25 / Sparse Retrieval: 06-rag/bm25-sparse-retrieval.md
+      - Dense Retrieval: 06-rag/dense-retrieval.md
+      - Hybrid Retrieval (RRF): 06-rag/hybrid-retrieval-rrf.md
+      - Qdrant: 06-rag/qdrant.md
+      - Reranking: 06-rag/reranking.md
+      - Retrieval Eval Metrics: 06-rag/retrieval-eval-metrics.md
+      - Grounded Answers & Injection Defense: 06-rag/grounded-answers-injection-defense.md
+      - Interview fire round: 06-rag/_interview.md
+  - 07 Orchestration:
+      - Agent Topologies: 07-orchestration/agent-topologies.md
+      - Graph Engineering Mindset: 07-orchestration/graph-engineering-mindset.md
+      - LangChain vs LangGraph: 07-orchestration/langchain-vs-langgraph.md
+      - LangChain:
+          - Runnables & LCEL: 07-orchestration/langchain/langchain-runnables-lcel.md
+          - Chains vs Agents: 07-orchestration/langchain/langchain-chains-vs-agents.md
+          - Tool Integration: 07-orchestration/langchain/langchain-tool-integration.md
+      - LangGraph:
+          - State: 07-orchestration/langgraph/langgraph-state.md
+          - Nodes: 07-orchestration/langgraph/langgraph-nodes.md
+          - Edges: 07-orchestration/langgraph/langgraph-edges.md
+          - Conditional Edges: 07-orchestration/langgraph/langgraph-conditional-edges.md
+          - Graph Patterns: 07-orchestration/langgraph/langgraph-graph-patterns.md
+          - Agentic Patterns: 07-orchestration/langgraph/langgraph-agentic-patterns.md
+          - Checkpointing & HITL: 07-orchestration/langgraph/langgraph-checkpointing-hitl.md
+          - Idempotency & Side Effects: 07-orchestration/langgraph/idempotency-and-side-effects.md
+      - Interview fire round: 07-orchestration/_interview.md
+  - 08 Multi-Agent Systems:
+      - Supervisor-Worker Teams: 08-multi-agent-systems/supervisor-worker-teams.md
+      - MCP & FastMCP: 08-multi-agent-systems/mcp-fastmcp.md
+      - Agent Protocols (A2A/AP2/AG-UI): 08-multi-agent-systems/agent-protocols-a2a-ap2.md
+      - Auth & Multi-Tenancy: 08-multi-agent-systems/auth-and-multi-tenancy.md
+      - Interview fire round: 08-multi-agent-systems/_interview.md
+  - 09 Production Readiness:
+      - Testing Agent Code: 09-production-readiness/testing-agent-code.md
+      - Langfuse Tracing: 09-production-readiness/langfuse-tracing.md
+      - Privacy & PII Handling: 09-production-readiness/privacy-and-pii-handling.md
+      - Retry & Fallback Patterns: 09-production-readiness/retry-fallback-patterns.md
+      - Circuit Breaker Pattern: 09-production-readiness/circuit-breaker-pattern.md
+      - Eval-Driven Development Mindset: 09-production-readiness/eval-driven-development-mindset.md
+      - Deterministic Scorers: 09-production-readiness/deterministic-scorers.md
+      - LLM Judges for Eval: 09-production-readiness/llm-judges-eval.md
+      - Guardrails & Injection Detection: 09-production-readiness/guardrails-injection-detection.md
+      - FastAPI Fundamentals: 09-production-readiness/fastapi-fundamentals.md
+      - Deployment & Packaging: 09-production-readiness/deployment-packaging.md
+      - Putting It All Together: 09-production-readiness/putting-it-all-together.md
+      - Interview fire round: 09-production-readiness/_interview.md
+  - 10 Interview Preparation:
+      - Overview: 10-interview-preparation/interview-prep-overview.md
+      - "Round 1: Fundamentals Rapid-Fire": 10-interview-preparation/round-1-fundamentals-rapid-fire.md
+      - "Round 2: System Design": 10-interview-preparation/round-2-system-design.md
+      - "Round 3: Production & Reliability": 10-interview-preparation/round-3-production-reliability.md
+      - "Round 4: Coding & Debugging": 10-interview-preparation/round-4-coding-and-debugging.md
+      - "Round 5: Behavioral & Tradeoffs": 10-interview-preparation/round-5-behavioral-and-tradeoffs.md

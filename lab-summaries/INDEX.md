@@ -2,6 +2,8 @@
 
 Condensed reference for each `labs/*.ipynb` notebook — read these first for concept/structure/code-pattern questions; open the actual notebook only when the exact live code, a specific cell's current state, or full output is needed. See `CLAUDE.md` → "Reference before teaching" for when to use which.
 
+For a topic-first, revision-ready reference built from these summaries (concept pages, a capstone milestone map, and interview prep), see `knowledge-base/index.md`.
+
 - [Day1-Session1-Foundations.md](Day1-Session1-Foundations.md) — Raw LLM client vs LiteLLM comparison (stateless APIs, completion() knobs, JSON modes); structured-output invoice parser with a repair loop. Milestone 1.
 - [Day1-Session2-ToolCalling.md](Day1-Session2-ToolCalling.md) — Travel-assistant tool calling (mocked+MCP dual implementations, reliability wrappers, tool-call loop) and a research agent (ReAct, Reflection). Milestone 2.
 - [Day2-Session1-MemoryEngineering.md](Day2-Session1-MemoryEngineering.md) — Four kinds of memory (working/episodic/semantic/procedural) via Supermemory; lossy context-compression with tested recall. Milestone 3.

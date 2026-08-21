@@ -32,9 +32,12 @@ Groq (`groq/llama-3.1-8b-instant`) + Gemini embeddings (`text-embedding-004`, 76
 - `/data` — Asset A (14 policy docs, deliberately conflicting), B (ticket corpus), C (Olist order DB mock), D (20-case golden eval set)
 
 ## Reference before teaching
-Check `/lab-summaries/<name>.md` first for concept/structure/code-pattern questions — condensed per-notebook references generated from `/labs`, listed in `/lab-summaries/INDEX.md`. Fall back to the actual `.ipynb` in `/labs` only when the summary doesn't have enough: I'm iterating on/pasting a full cell, want exact current code, or the summary's excerpt is insufficient. This is a balance, not a hard rule — if a question clearly needs the live notebook content, read the notebook. `/labs` itself is fixed and never edited. Check `/data` for schema/format before wiring any agent to it.
+Check `/lab-summaries/<name>.md` first for concept/structure/code-pattern questions — condensed per-notebook references generated from `/labs`, listed in `/lab-summaries/INDEX.md`. Fall back to the actual `.ipynb` in `/labs` only when the summary doesn't have enough: I'm iterating on/pasting a full cell, want exact current code, or the summary's excerpt is insufficient. This is a balance, not a hard rule — if a question clearly needs the live notebook content, read the notebook. `/labs` itself is fixed and never edited. Check `/data` for schema/format before wiring any agent to it. For topic-first revision (not tied to a specific notebook) or interview prep, use `knowledge-base/index.md` instead.
 
 Also check `/labs/production-notes.md` — extracted learnings from my earlier ShopSense M1-M8 build (old repo, not carried forward as code). Contains real issues I hit and fixes I baked in (retries, schema validation quirks, RAG edge cases, etc), grouped by concern. When teaching a concept that overlaps one of these, surface the relevant note so I don't re-learn the same lesson the hard way — but still make me implement it myself.
+
+## Knowledge-base build plan
+`/plan.md` at the repo root is the source of truth for the `/knowledge-base/` revision-KB build (topic-first MkDocs reference derived from `lab-summaries/` + `presentations/`). Any future edits to that plan go there, not into a `~/.claude/plans/...` Plan Mode file.
 
 ## Learning style
 Concise, example-driven, grounded in actual lab code. Low verbosity. 6-question quiz format when I ask to be tested, with score + weak-spot flag at the end.

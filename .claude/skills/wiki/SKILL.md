@@ -6,41 +6,43 @@ description: Build, extend, and verify the /knowledge-base/ revision KB (topic-f
 # /wiki — knowledge-base build operator
 
 Executes the Build steps of the approved KB plan. Source of truth for *what* to build:
-`C:\Users\ina974nagkaka\.claude\plans\from-lab-summaries-i-am-greedy-turtle.md`
+`plan.md` at the repo root (`d:\Krishna\OpenSource\AI\IITH-AI\milestones\plan.md`) — edit that file for
+any future plan changes, not the original `~/.claude/plans/...` Plan Mode file.
 
-Source of truth for *why* structural calls were made (don't re-litigate these — apply them):
-memory file `knowledge-base-plan-decisions` (topic-first naming, stage order, wikilink plugin choice,
-`source-material/` as optional supplementary input, web-research latest-version rule, etc).
-
-Always read both before doing anything below. If either is missing, stop and tell the user —
-do not improvise a replacement plan.
+Always read `plan.md` before doing anything below — it carries the manifest, rationale, and
+"settled, not open for re-litigation" decisions inline (see its Context section). If it's
+missing, stop and tell the user — do not improvise a replacement plan.
 
 ## Args
 
 `/wiki <subcommand> [target]`
 
 ### `scaffold`
-One-time. Plan's Build step 1: create the full `knowledge-base/` tree — all 72 concept files
-(headed but empty per the template's H1 + "what & why" line), `index.md`,
-`capstone-milestone-map.md`, and 10 empty `<stage>/_interview.md` stubs. Skip any file that
-already exists (check before writing — this repo already has a validation slice: `mkdocs.yml`,
-`tokens-and-tokenization.md`, `chunking.md`, `_smoketest/`). Do not touch files outside
-`knowledge-base/`.
+Create new headed-but-empty files (H1 + "what & why" line) for whatever's in `plan.md`'s
+manifest but not yet on disk — the original one-time run built all 73 concept files, `index.md`,
+`capstone-milestone-map.md`, and 10 `<stage>/_interview.md` stubs; a later run added the
+`10-interview-preparation/` stage the same way. Skip any file that already exists (check before
+writing). Do not touch files outside `knowledge-base/`.
 
 ### `generate <stage-or-file-list>`
 Plan's Build step 4, run per batch. Before spawning anything:
 1. Confirm the target files' headings already exist (run `scaffold` first if not).
-2. Check `source-material/` for a same-day/session file matching the target stage — optional,
-   supplementary only, labs/notebooks still win on conflict.
+2. Check `presentations/dayN.md` for the file matching the target stage, per `plan.md`'s
+   Day → stage mapping. Where a match exists it's a real input to gather, not optional — the
+   decks are co-primary for conceptual framing and anything lab-silent; labs/notebooks still win
+   on code-level/API specifics on conflict. `01`/`02` have no matching day file (expected).
 3. Gather that batch's `lab-summaries/*.md` + the matching notebook path(s) in `labs/`.
 
 Spawn one `general-purpose` Agent per batch (roughly even file count, not strictly
-one-agent-per-folder — split stage 07, merge thin stages like 01+02 or 05). Give each agent:
-- the relevant `lab-summaries/*.md` + notebook path(s), and the `source-material/` file if present
+one-agent-per-folder — split stage 07, merge thin stages like 01+02). Give each agent:
+- the relevant `lab-summaries/*.md` + notebook path(s), and the matching `presentations/dayN.md`
+  when one exists for that stage
 - the full per-file template (plan's "Per-file template (revised)" section)
-- the 3 exemplar pages as style reference: `qdrant.md`, `chunking.md`, `tokens-and-tokenization.md`
-- the full 72-file manifest as the **only** legal `[[wikilink]]` targets
-- the Web-research rules (latest package version only, source tiering, alternatives-table rules)
+- 2-3 already-written pages as style reference (e.g. `chunking.md`, `tokens-and-tokenization.md`,
+  `qdrant.md` — pick ones already in the target stage's neighborhood when possible)
+- the full manifest (`mkdocs.yml`'s `nav:` section) as the **only** legal `[[wikilink]]` targets
+- the Web-research rules (latest package version only, source tiering, alternatives-table rules,
+  and the rule on citing unverifiable 2026-dated deck claims as "per course material")
 - explicit instruction: strip any TA/course-logistics references from lab-sourced gotchas
 - the "reader knows basic Python, nothing about this stack" framing
 
@@ -59,14 +61,30 @@ batches. Assemble each stage's `_interview.md` from its pages' "Interview fire r
 Plan's Build step 7:
 - `uv run mkdocs serve` (or `build --strict`) — nav follows stage order, wikilinks resolve, no
   mangled paragraph breaks (check raw markdown, not just rendered HTML)
-- mechanically confirm every `[[wikilink]]` resolves to a real file in the 72-file manifest
+- mechanically confirm every `[[wikilink]]` resolves to a real file in the manifest (script it —
+  walk `knowledge-base/`, regex `\[\[([^\]|#]+)`, diff targets against filenames)
+- separately grep for `` `\[\[ `` — a wikilink wrapped in backticks renders as literal inline code,
+  not a link, even though the target is valid; this is a distinct failure mode from a broken
+  target and the mechanical link-resolution check above won't catch it
+- same failure mode, no brackets: grep for any backtick-wrapped `` `<name>.md` `` where `<name>`
+  matches a real file under `knowledge-base/` (e.g. `` `capstone-milestone-map.md` ``) — a plain
+  in-KB filename cited in backticks instead of as `[[name]]` also renders as dead inline code, not
+  a link, and a bracket-only grep won't catch it either (found tree-wide across ~66 files this way
+  once already — see `plan.md` Status)
 - spot-check external URLs aren't dead
 - open in Obsidian to confirm the graph clusters sensibly (ask the user to eyeball this — not
   automatable)
 - read `index.md` → `capstone-milestone-map.md` → stage 00 → 01 → 02 cold, as a newcomer would
 - spot-check 4-5 files against source notebooks, confirm no TA references leaked through
 - confirm Alternatives tables cite sources actually fetched that session, not stale/hallucinated
-- grep for banned strings: `Day 1`, `Session 2`, and any TA names found in `lab-summaries/`
+- grep for banned strings: `Day 1`, `Session 2`, and any TA names found in `lab-summaries/` — but
+  citing a real filename (`presentations/day1.md`, `lab-summaries/Day1-Session1-Foundations.md`)
+  inside a Sources section is fine and expected; only narrative prose using day/session numbering
+  is banned
+- if `capstone-milestone-map.md` itself changed this run, re-grep the whole tree for
+  `Milestone \d` — every page's own "How this shows up in the capstone" section names a specific
+  milestone number, and fixing only the map without checking every page that cites a number
+  against it leaves the two silently contradicting each other
 
 ### `pointers`
 Plan's Build step 6, one-time, run only after `verify` passes: add one pointer line from
@@ -75,16 +93,17 @@ Plan's Build step 6, one-time, run only after `verify` passes: add one pointer l
 
 ## Guardrails (apply to every subcommand)
 
-- Never invent a `[[wikilink]]` target outside the 72-file manifest.
-- Never add day/session naming to a concept filename — name the pattern, source the example
-  (see memory: `knowledge-base-plan-decisions`).
-- Lab/notebook content always wins over `source-material/` (slides) on conflict.
-- Web research must target the latest package version against this repo's `pyproject.toml`/
-  `uv.lock` pins — explicitly discard docs/blog content that predates the pinned major version
-  (LangGraph pre-1.0 vs 1.x, Langfuse v2/v3 vs the repo's v4, FastMCP v1-bundled vs standalone v3.x).
-- Out of scope for this skill: GitHub repo/remote, GitHub Pages/Actions, edits to
-  `lab-summaries/*.md` beyond the one `pointers` line, any `log.md` ingest ledger.
-- After any subcommand that changes a structural decision (not just fills in content), append a
-  bullet to the `knowledge-base-plan-decisions` memory file and refresh its
-  "Status as of last touch" line — that memory is the only place this reasoning survives a fresh
-  session.
+- Never invent a `[[wikilink]]` target outside the manifest — cross-check `mkdocs.yml`'s `nav:`
+  section as the authoritative, always-current list (it grows over time; don't hardcode a count).
+- Never add day/session naming to a concept filename or to narrative prose — name the pattern,
+  source the example. Citing a real filename inside a Sources section is fine (see `verify` above).
+- Web-research rules (latest-version-only, source tiering, lab-vs-deck precedence) and the
+  out-of-scope list (no GitHub remote/Pages, no `lab-summaries/*.md` edits beyond `pointers`, no
+  `log.md` ledger) live once in `plan.md` — read them there, don't restate them here.
+- `mkdocs-roamlinks-plugin` is the intentional choice despite its cosmetic deprecation warning at
+  build time (unmaintained since 2023, but wikilinks resolve fine); its own fallback
+  `mkdocs-ezlinks-plugin` is more stale, not less. Don't swap it over a warning — only if MkDocs
+  actually breaks resolving `[[wikilinks]]`.
+- After any subcommand that changes a structural decision (not just fills in content), add or
+  update a note directly in `plan.md`'s Status section — that's the only place this reasoning
+  needs to live; don't start a separate memory file for it.

@@ -48,7 +48,7 @@ output_tokens = litellm.token_counter(model="groq/llama-3.1-8b-instant", text=re
 
 ## How this shows up in the capstone
 
-Milestone 1 (provider-agnostic LLM client) logs input/output token counts per call as part of the cost/latency comparison — see `capstone-milestone-map.md`.
+Milestone 1 (provider-agnostic LLM client) logs input/output token counts per call as part of the cost/latency comparison — see [[capstone-milestone-map]].
 
 ## Interview fire round
 
