@@ -1,9 +1,10 @@
-site_name: ShopSense Knowledge Base
+site_name: Applied AI Engineering
 site_url: https://krishnakakarla88.github.io/iith-ai-resources/
 docs_dir: knowledge-base
 copyright: Built by Krishna Kakarla
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: default
       toggle:
@@ -16,6 +17,7 @@ theme:
   features:
     - navigation.instant
     - navigation.top
+    - toc.integrate
     - content.code.copy
 
 plugins:
@@ -24,6 +26,9 @@ plugins:
 
 extra_javascript:
   - javascripts/external-links.js
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition

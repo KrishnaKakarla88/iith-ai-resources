@@ -1,0 +1,15 @@
+/* Footer: put copyright/name on the right, "Made with Material" on the left,
+   both on one line instead of stacking to two. */
+.md-copyright {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Widen the reading column so content isn't squeezed with big empty
+   margins on wide screens. Tune the max-width to taste. */
+.md-grid {
+  max-width: 90rem;
+}

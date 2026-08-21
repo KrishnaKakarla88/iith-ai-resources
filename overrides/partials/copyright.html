@@ -1,0 +1,20 @@
+{#-
+  Overrides Material's default copyright.html so the generator note and the
+  custom copyright text sit as exactly two flex children (left / right),
+  instead of the default 3 loose nodes that space-between spreads unevenly.
+-#}
+<div class="md-copyright">
+  {% if not config.extra.generator == false %}
+    <span class="md-copyright__generator">
+      Made with
+      <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        Material for MkDocs
+      </a>
+    </span>
+  {% endif %}
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+    </div>
+  {% endif %}
+</div>
