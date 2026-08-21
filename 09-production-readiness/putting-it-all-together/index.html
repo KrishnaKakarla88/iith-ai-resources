@@ -3718,9 +3718,9 @@
 </ul>
 <h2 id="production-gotchas-best-practices">Production gotchas &amp; best practices</h2>
 <ul>
-<li>The single most common gap between "the demo works" and "this is production-ready" is treating steps 6-9 above (guardrails, tracing, eval, reliability) as optional add-ons layered on at the end rather than built in from Agent 1 — this repo's own build order (see <code>CLAUDE.md</code>) deliberately bakes tracing in from the first agent onward rather than bolting it on later, for exactly this reason.</li>
+<li>The single most common gap between "the demo works" and "this is production-ready" is treating steps 6-9 above (guardrails, tracing, eval, reliability) as optional add-ons layered on at the end rather than built in from Agent 1 — a build order that deliberately bakes tracing in from the first agent onward avoids bolting it on later, for exactly this reason.</li>
 <li>Per course material (<code>presentations/day4.md</code>, Session 2 Act 4): "ready to ship" is a document a team signs — the agent's job and limits, its evaluation report, an operational runbook, and honestly-stated known limitations — not a claim that emerges automatically once every layer above technically works.</li>
-<li>Identity handling (hop 2) is a recurring real-incident source across this repo's own build notes: guessing customer identity from message text, rather than the authenticated session, is called out independently in both the memory and auth gotchas (<code>labs/production-notes.md</code>) as a mistake made and fixed more than once.</li>
+<li>Identity handling (hop 2) is a recurring real-incident source: guessing customer identity from message text, rather than the authenticated session, is called out independently in both the memory and auth gotchas (<code>labs/production-notes.md</code>) as a mistake made and fixed more than once.</li>
 </ul>
 <h2 id="course-vs-production">Course vs. production</h2>
 <p>The lab builds and demonstrates each layer above in its own notebook, largely in isolation — a RAG notebook, a memory notebook, an orchestration notebook, an eval-and-guardrails notebook — each proving its own piece works. In production, all of these layers run inside one continuously-deployed service handling concurrent requests, where a failure in one layer (a slow vector DB, a rate-limited LLM provider, a guardrail false-rejection) has to degrade the request gracefully rather than crash the whole call — which is precisely why retry/circuit-breaker patterns, tracing, and eval aren't separate concerns bolted on after the fact, but part of the same request path from the start.</p>
@@ -3734,8 +3734,7 @@
 <p><strong>Lab sources</strong>
 - <code>lab-summaries/Day4-Session2-EvalGuardrails.md</code> (§ "The system under test — four independently-gradable components", § "Lab B — Package as a FastAPI service")
 - <code>presentations/day4.md</code> (Session 2, Act 4 — "Shipping It, and What Happens After": the production-readiness checklist this page's end-to-end walkthrough is organized against)
-- <a href="../../capstone-milestone-map/">capstone-milestone-map</a> (M1-M8 concept-to-milestone table this page's "How this shows up in the capstone" section is drawn from)
-- <code>CLAUDE.md</code> (this repo's own build order — tracing baked in from Agent 1, not bolted on later)</p>
+- <a href="../../capstone-milestone-map/">capstone-milestone-map</a> (M1-M8 concept-to-milestone table this page's "How this shows up in the capstone" section is drawn from, including the repeatable single-agent → resilience → tracing build pattern each capstone agent follows)</p>
 <p><strong>Web sources</strong>
 - No new web sources — this page synthesizes concepts already sourced individually on the pages it links to; see each linked page's own Sources section for its citations.</p>
 
