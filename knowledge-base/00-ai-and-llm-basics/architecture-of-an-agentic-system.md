@@ -71,7 +71,7 @@ This is the shape ShopSense is built to, one agent at a time, per the repo's own
 ## Production gotchas & best practices
 
 - Per course material (`presentations/day1.md`, Act 2): "Agent = Model + Harness" is worth taking literally — the same model dropped into two different harnesses (different loop, different tool permissions, different context management) can feel like a completely different product, which is why harness design gets as much attention as model choice.
-- Production practice: build tracing and reliability wrappers in from the first agent, not as a retrofit once multiple agents exist — this repo's own build order (see `CLAUDE.md`) bakes Langfuse tracing in from Agent 1 specifically to avoid the common failure of treating observability as something added right before shipping.
+- Production practice: build tracing and reliability wrappers in from the first agent, not as a retrofit once multiple agents exist — a build order that bakes tracing in from Agent 1 avoids the common failure of treating observability as something added right before shipping.
 - Gotcha: it's tempting to reach for multi-agent orchestration by default because it's the more sophisticated-looking part of the stack — [[workflow-vs-agent-autonomy-spectrum]] and [[agent-topologies]] both warn against this: add a layer (tools, retrieval, memory, orchestration) only once a single simpler layer has been shown, by evaluation, to fall short.
 
 ## Course vs. production
@@ -88,8 +88,7 @@ The labs build and prove each layer above in its own isolated notebook. A real d
 **Lab sources**
 - `lab-summaries/Day1-Session2-ToolCalling.md` (harness/tool-call loop, ReAct loop, reliability wrappers)
 - `labs/Day1 Session 2 - Tool calling and Single Agent Patterns.ipynb`
-- `CLAUDE.md` (this repo's own build order — single agent, retry/circuit-breaker, tracing, repeated per agent, then multi-agent orchestration, MCP, FastAPI/guardrails)
-- [[capstone-milestone-map]] (concept-to-milestone table this page's capstone section draws from)
+- [[capstone-milestone-map]] (concept-to-milestone table this page's capstone section draws from, including the repeatable single-agent → resilience → tracing build pattern each capstone agent follows)
 
 **Course material**
 - `presentations/day1.md` (Session 1 finale — "What is an Agent?"; Session 2, Act 2, Question 2 — "Agent = Model + Harness")

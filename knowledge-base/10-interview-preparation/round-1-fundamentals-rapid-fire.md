@@ -1,6 +1,6 @@
 # Round 1: Fundamentals rapid-fire
 
-This round covers stages [[what-is-an-llm|00]]-[[workflow-vs-agent-autonomy-spectrum|04]]: LLM basics, tokens, prompting, context, Python-for-agents patterns, tool calling, ReAct/reflection. These are the questions a real interviewer asks in the first 15-20 minutes to establish whether you actually have the vocabulary — answered wrong or vaguely here, everything after gets discounted. Answer out loud, in one or two sentences, before reading the given answer.
+This round covers stages 00-04 ([[what-is-an-llm]] through [[workflow-vs-agent-autonomy-spectrum]]): LLM basics, tokens, prompting, context, Python-for-agents patterns, tool calling, ReAct/reflection. These are the questions a real interviewer asks in the first 15-20 minutes to establish whether you actually have the vocabulary — answered wrong or vaguely here, everything after gets discounted. Answer out loud, in one or two sentences, before reading the given answer.
 
 Each question below is written the way it actually gets asked — comparative, adversarial, or "why would this fail" — not as a bare definition. Sub-sectioned by topic; work top to bottom once, then jump straight to whichever sub-section exposed a gap.
 

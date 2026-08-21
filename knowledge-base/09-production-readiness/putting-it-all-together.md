@@ -62,9 +62,9 @@ This page spans the whole capstone arc rather than one milestone: M1 (single age
 
 ## Production gotchas & best practices
 
-- The single most common gap between "the demo works" and "this is production-ready" is treating steps 6-9 above (guardrails, tracing, eval, reliability) as optional add-ons layered on at the end rather than built in from Agent 1 — this repo's own build order (see `CLAUDE.md`) deliberately bakes tracing in from the first agent onward rather than bolting it on later, for exactly this reason.
+- The single most common gap between "the demo works" and "this is production-ready" is treating steps 6-9 above (guardrails, tracing, eval, reliability) as optional add-ons layered on at the end rather than built in from Agent 1 — a build order that deliberately bakes tracing in from the first agent onward avoids bolting it on later, for exactly this reason.
 - Per course material (`presentations/day4.md`, Session 2 Act 4): "ready to ship" is a document a team signs — the agent's job and limits, its evaluation report, an operational runbook, and honestly-stated known limitations — not a claim that emerges automatically once every layer above technically works.
-- Identity handling (hop 2) is a recurring real-incident source across this repo's own build notes: guessing customer identity from message text, rather than the authenticated session, is called out independently in both the memory and auth gotchas (`labs/production-notes.md`) as a mistake made and fixed more than once.
+- Identity handling (hop 2) is a recurring real-incident source: guessing customer identity from message text, rather than the authenticated session, is called out independently in both the memory and auth gotchas (`labs/production-notes.md`) as a mistake made and fixed more than once.
 
 ## Course vs. production
 
@@ -80,8 +80,7 @@ The lab builds and demonstrates each layer above in its own notebook, largely in
 **Lab sources**
 - `lab-summaries/Day4-Session2-EvalGuardrails.md` (§ "The system under test — four independently-gradable components", § "Lab B — Package as a FastAPI service")
 - `presentations/day4.md` (Session 2, Act 4 — "Shipping It, and What Happens After": the production-readiness checklist this page's end-to-end walkthrough is organized against)
-- [[capstone-milestone-map]] (M1-M8 concept-to-milestone table this page's "How this shows up in the capstone" section is drawn from)
-- `CLAUDE.md` (this repo's own build order — tracing baked in from Agent 1, not bolted on later)
+- [[capstone-milestone-map]] (M1-M8 concept-to-milestone table this page's "How this shows up in the capstone" section is drawn from, including the repeatable single-agent → resilience → tracing build pattern each capstone agent follows)
 
 **Web sources**
 - No new web sources — this page synthesizes concepts already sourced individually on the pages it links to; see each linked page's own Sources section for its citations.
