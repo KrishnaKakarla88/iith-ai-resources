@@ -32,6 +32,6 @@ Don't open `site/index.html` directly by double-clicking it (`file://...`) — t
 
 Alternatively, open the `knowledge-base/` folder directly as an Obsidian vault — the same `[[wikilink]]` syntax works natively there, no server needed.
 
-### Deploying (not done yet, but works as configured)
+### Deploying
 
-Since MkDocs' clean URLs are just plain HTTP paths, any static host serving over HTTP — GitHub Pages, Netlify, Vercel — renders and links correctly with no config changes. GitHub Pages specifically would need either `mkdocs gh-deploy` (pushes the built `site/` to a `gh-pages` branch) or a GitHub Action that runs `mkdocs build` and publishes the output; this repo doesn't have either wired up yet by design (local-only for now, per the KB build plan).
+Live at **https://krishnakakarla88.github.io/iith-ai-resources/**, published via `uv run mkdocs gh-deploy` (builds the site and pushes it to the `gh-pages` branch). Re-run that command to publish any future content changes — nothing auto-deploys on push.

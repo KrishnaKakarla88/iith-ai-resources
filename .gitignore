@@ -15,7 +15,7 @@ wheels/
 site/
 
 graphify-out/
-.graphifyignore*
+.graphifyignore
 
 m1_ticket_parser/
 m2_single_agent/
