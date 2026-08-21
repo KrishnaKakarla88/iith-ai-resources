@@ -813,6 +813,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../01-python-refresher/dunder-methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dunder Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../01-python-refresher/_interview/" class="md-nav__link">
         
   
@@ -1011,6 +1039,17 @@
     <span class="md-ellipsis">
       
         Core mechanics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-dunders-pydantic-generates-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The dunders Pydantic generates for you
       
     </span>
   </a>
@@ -3662,6 +3701,7 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li><a href="../type-hints-basics/">type-hints-basics</a></li>
+<li><a href="../../01-python-refresher/dunder-methods/">dunder-methods</a></li>
 </ul>
 <h2 id="in-plain-english">In plain English</h2>
 <p>An LLM's raw output is text. Even when you ask for JSON, what comes back is a string that merely <em>looks like</em> JSON — nothing guarantees the fields are present, correctly typed, or within any sensible range until something actually checks. Pydantic is that check: you declare the shape you expect as a class (a <code>BaseModel</code> subclass with type-annotated fields), and constructing an instance of that class from raw data (<code>Invoice(**parsed_json)</code>) runs real validation — wrong type, missing required field, or a value outside a declared constraint all raise a <code>ValidationError</code> with a specific, readable reason, instead of a mystery <code>KeyError</code>/<code>TypeError</code> three functions downstream.</p>
@@ -3710,6 +3750,39 @@
 </tbody>
 </table>
 <p><code>Model(**data)</code> is the validation boundary — everything before it is untrusted; everything after it is a typed, checked object.</p>
+<h2 id="the-dunders-pydantic-generates-for-you">The dunders Pydantic generates for you</h2>
+<p><code>BaseModel</code> is a plain Python class under the hood, and everything it "just does" — construction, printing, equality — is <a href="../../01-python-refresher/dunder-methods/">dunder-methods</a> generated from your field declarations rather than hand-written:</p>
+<table>
+<thead>
+<tr>
+<th>Dunder</th>
+<th>What <code>BaseModel</code> does with it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>generated from the class's annotated fields — this is <em>why</em> <code>Invoice(**data)</code> works without you ever writing an <code>__init__</code>; it also runs full validation before any attribute is set, not after</td>
+</tr>
+<tr>
+<td><code>__repr__</code></td>
+<td>shows every field as <code>name=value</code> (e.g. <code>Invoice(customer='Acme', line_items=[...])</code>) instead of <code>object</code>'s default <code>&lt;Invoice object at 0x...&gt;</code> — critical for reading a <code>ValidationError</code> traceback or a test failure diff</td>
+</tr>
+<tr>
+<td><code>__eq__</code></td>
+<td>two instances are equal if they're the same model class <strong>and</strong> every field value matches — this is what makes <code>assert actual == expected</code> work directly on parsed model instances in a golden-eval test, with no custom comparison code</td>
+</tr>
+<tr>
+<td><code>__iter__</code></td>
+<td>yields <code>(field_name, value)</code> pairs, which is why <code>dict(my_model)</code> works without calling <code>.model_dump()</code></td>
+</tr>
+<tr>
+<td><code>__setattr__</code></td>
+<td>re-validates the new value on every attribute assignment <em>if and only if</em> <code>model_config = ConfigDict(validate_assignment=True)</code> is set — off by default, since re-running validation on every assignment has a real perf cost</td>
+</tr>
+</tbody>
+</table>
+<p>None of this is Pydantic-specific magic beyond the mechanism <a href="../../01-python-refresher/dunder-methods/">dunder-methods</a> describes generally — <code>BaseModel</code> is simply generating these dunders from your annotated fields the same way <code>@dataclass</code> does, plus layering runtime validation on top.</p>
 <h2 id="sample-code">Sample code</h2>
 <p>Lab-sourced (<code>lab-summaries/Day1-Session1-Foundations.md</code>, "Structured Output Parser") — schema, then the validate step that turns raw JSON text into a checked object or a specific error:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">ValidationError</span>
@@ -3773,7 +3846,7 @@
 <p>The lab's repair loop (feed a <code>ValidationError</code> back into the prompt, retry) is the same shape production systems use, but production typically adds a cap on repair attempts tied to cost/latency budgets and logs every validation failure as a signal (a recurring failure pattern on one field usually means the prompt or schema needs adjusting, not just more retries) — see <a href="../../03-foundations/structured-output-repair-loops/">structured-output-repair-loops</a> for the full pattern.</p>
 <h2 id="related">Related</h2>
 <ul>
-<li><strong>Builds on</strong> — <a href="../type-hints-basics/">type-hints-basics</a></li>
+<li><strong>Builds on</strong> — <a href="../type-hints-basics/">type-hints-basics</a>, <a href="../../01-python-refresher/dunder-methods/">dunder-methods</a></li>
 <li><strong>Feeds into</strong> — <a href="../../03-foundations/structured-output-repair-loops/">structured-output-repair-loops</a>, <a href="../../09-production-readiness/guardrails-injection-detection/">guardrails-injection-detection</a>, <a href="../../08-multi-agent-systems/mcp-fastmcp/">mcp-fastmcp</a></li>
 </ul>
 <h2 id="sources">Sources</h2>

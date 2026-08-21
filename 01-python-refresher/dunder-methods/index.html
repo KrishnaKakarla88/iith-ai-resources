@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://krishnakakarla88.github.io/iith-ai-resources/">
+        <link rel="canonical" href="https://krishnakakarla88.github.io/iith-ai-resources/01-python-refresher/dunder-methods/">
       
       
+        <link rel="prev" href="../functions-args-kwargs/">
       
-        <link rel="next" href="capstone-milestone-map/">
+      
+        <link rel="next" href="../_interview/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Applied AI Engineering — August 2026 Cohort</title>
+        <title>Dunder Methods - Applied AI Engineering — August 2026 Cohort</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#applied-ai-engineering-august-2026-cohort" class="md-skip">
+        <a href="#dunder-methods-magic-methods" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Applied AI Engineering — August 2026 Cohort" class="md-header__button md-logo" aria-label="Applied AI Engineering — August 2026 Cohort" data-md-component="logo">
+    <a href="../.." title="Applied AI Engineering — August 2026 Cohort" class="md-header__button md-logo" aria-label="Applied AI Engineering — August 2026 Cohort" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Start Here
+              Dunder Methods
             
           </span>
         </div>
@@ -218,7 +220,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Applied AI Engineering — August 2026 Cohort" class="md-nav__button md-logo" aria-label="Applied AI Engineering — August 2026 Cohort" data-md-component="logo">
+    <a href="../.." title="Applied AI Engineering — August 2026 Cohort" class="md-nav__button md-logo" aria-label="Applied AI Engineering — August 2026 Cohort" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -233,37 +235,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Start Here
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -279,48 +254,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#start-here-guided-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Start Here (guided path)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools-libraries-quick-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools &amp; Libraries quick index
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -332,7 +265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="capstone-milestone-map/" class="md-nav__link">
+      <a href="../../capstone-milestone-map/" class="md-nav__link">
         
   
   
@@ -406,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/what-is-an-llm/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/what-is-an-llm/" class="md-nav__link">
         
   
   
@@ -434,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/tokens-and-tokenization/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/tokens-and-tokenization/" class="md-nav__link">
         
   
   
@@ -462,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/how-llms-generate-text/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/how-llms-generate-text/" class="md-nav__link">
         
   
   
@@ -490,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/context-windows-and-limits/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/context-windows-and-limits/" class="md-nav__link">
         
   
   
@@ -518,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/prompting-basics/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/prompting-basics/" class="md-nav__link">
         
   
   
@@ -546,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/prompt-engineering-techniques/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/prompt-engineering-techniques/" class="md-nav__link">
         
   
   
@@ -574,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/context-engineering/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/context-engineering/" class="md-nav__link">
         
   
   
@@ -602,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/context-rot-and-long-context-management/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/context-rot-and-long-context-management/" class="md-nav__link">
         
   
   
@@ -630,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/model-selection-cost-latency-tradeoffs/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/model-selection-cost-latency-tradeoffs/" class="md-nav__link">
         
   
   
@@ -658,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/fine-tuning-vs-rag/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/fine-tuning-vs-rag/" class="md-nav__link">
         
   
   
@@ -686,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/architecture-of-an-agentic-system/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/architecture-of-an-agentic-system/" class="md-nav__link">
         
   
   
@@ -714,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="00-ai-and-llm-basics/_interview/" class="md-nav__link">
+      <a href="../../00-ai-and-llm-basics/_interview/" class="md-nav__link">
         
   
   
@@ -746,18 +679,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -778,7 +713,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -796,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-python-refresher/python-data-types-and-mutability/" class="md-nav__link">
+      <a href="../python-data-types-and-mutability/" class="md-nav__link">
         
   
   
@@ -824,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-python-refresher/lists-tuples-sets-dicts/" class="md-nav__link">
+      <a href="../lists-tuples-sets-dicts/" class="md-nav__link">
         
   
   
@@ -852,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-python-refresher/functions-args-kwargs/" class="md-nav__link">
+      <a href="../functions-args-kwargs/" class="md-nav__link">
         
   
   
@@ -877,10 +812,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="01-python-refresher/dunder-methods/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dunder Methods
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -896,6 +858,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-plain-english" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In plain English
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core mechanics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-shows-up-in-the-capstone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How this shows up in the capstone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-gotchas-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production gotchas &amp; best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-vs-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course vs. production
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -908,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-python-refresher/_interview/" class="md-nav__link">
+      <a href="../_interview/" class="md-nav__link">
         
   
   
@@ -990,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-python-for-ai-agents/type-hints-basics/" class="md-nav__link">
+      <a href="../../02-python-for-ai-agents/type-hints-basics/" class="md-nav__link">
         
   
   
@@ -1018,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-python-for-ai-agents/pydantic-basics/" class="md-nav__link">
+      <a href="../../02-python-for-ai-agents/pydantic-basics/" class="md-nav__link">
         
   
   
@@ -1046,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-python-for-ai-agents/decorators-and-wrappers/" class="md-nav__link">
+      <a href="../../02-python-for-ai-agents/decorators-and-wrappers/" class="md-nav__link">
         
   
   
@@ -1074,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-python-for-ai-agents/async-await-for-llm-apps/" class="md-nav__link">
+      <a href="../../02-python-for-ai-agents/async-await-for-llm-apps/" class="md-nav__link">
         
   
   
@@ -1102,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02-python-for-ai-agents/_interview/" class="md-nav__link">
+      <a href="../../02-python-for-ai-agents/_interview/" class="md-nav__link">
         
   
   
@@ -1184,7 +1265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/env-secrets-and-config/" class="md-nav__link">
+      <a href="../../03-foundations/env-secrets-and-config/" class="md-nav__link">
         
   
   
@@ -1212,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/raw-llm-clients/" class="md-nav__link">
+      <a href="../../03-foundations/raw-llm-clients/" class="md-nav__link">
         
   
   
@@ -1240,7 +1321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/litellm-basics/" class="md-nav__link">
+      <a href="../../03-foundations/litellm-basics/" class="md-nav__link">
         
   
   
@@ -1268,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/litellm-as-gateway/" class="md-nav__link">
+      <a href="../../03-foundations/litellm-as-gateway/" class="md-nav__link">
         
   
   
@@ -1296,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/structured-output-repair-loops/" class="md-nav__link">
+      <a href="../../03-foundations/structured-output-repair-loops/" class="md-nav__link">
         
   
   
@@ -1324,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/streaming-responses/" class="md-nav__link">
+      <a href="../../03-foundations/streaming-responses/" class="md-nav__link">
         
   
   
@@ -1352,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/rate-limits-quotas-and-caching/" class="md-nav__link">
+      <a href="../../03-foundations/rate-limits-quotas-and-caching/" class="md-nav__link">
         
   
   
@@ -1380,7 +1461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-foundations/_interview/" class="md-nav__link">
+      <a href="../../03-foundations/_interview/" class="md-nav__link">
         
   
   
@@ -1462,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-tool-calling-single-agents/workflow-vs-agent-autonomy-spectrum/" class="md-nav__link">
+      <a href="../../04-tool-calling-single-agents/workflow-vs-agent-autonomy-spectrum/" class="md-nav__link">
         
   
   
@@ -1490,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-tool-calling-single-agents/agentic-loop-fundamentals/" class="md-nav__link">
+      <a href="../../04-tool-calling-single-agents/agentic-loop-fundamentals/" class="md-nav__link">
         
   
   
@@ -1518,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-tool-calling-single-agents/tool-calling-fundamentals/" class="md-nav__link">
+      <a href="../../04-tool-calling-single-agents/tool-calling-fundamentals/" class="md-nav__link">
         
   
   
@@ -1546,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-tool-calling-single-agents/react-pattern/" class="md-nav__link">
+      <a href="../../04-tool-calling-single-agents/react-pattern/" class="md-nav__link">
         
   
   
@@ -1574,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-tool-calling-single-agents/reflection-pattern/" class="md-nav__link">
+      <a href="../../04-tool-calling-single-agents/reflection-pattern/" class="md-nav__link">
         
   
   
@@ -1602,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-tool-calling-single-agents/_interview/" class="md-nav__link">
+      <a href="../../04-tool-calling-single-agents/_interview/" class="md-nav__link">
         
   
   
@@ -1684,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-memory/memory-types/" class="md-nav__link">
+      <a href="../../05-memory/memory-types/" class="md-nav__link">
         
   
   
@@ -1712,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-memory/supermemory/" class="md-nav__link">
+      <a href="../../05-memory/supermemory/" class="md-nav__link">
         
   
   
@@ -1740,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-memory/context-compression/" class="md-nav__link">
+      <a href="../../05-memory/context-compression/" class="md-nav__link">
         
   
   
@@ -1768,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-memory/_interview/" class="md-nav__link">
+      <a href="../../05-memory/_interview/" class="md-nav__link">
         
   
   
@@ -1850,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/ingestion/" class="md-nav__link">
+      <a href="../../06-rag/ingestion/" class="md-nav__link">
         
   
   
@@ -1878,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/chunking/" class="md-nav__link">
+      <a href="../../06-rag/chunking/" class="md-nav__link">
         
   
   
@@ -1906,7 +1987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/embeddings-models/" class="md-nav__link">
+      <a href="../../06-rag/embeddings-models/" class="md-nav__link">
         
   
   
@@ -1934,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/bm25-sparse-retrieval/" class="md-nav__link">
+      <a href="../../06-rag/bm25-sparse-retrieval/" class="md-nav__link">
         
   
   
@@ -1962,7 +2043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/dense-retrieval/" class="md-nav__link">
+      <a href="../../06-rag/dense-retrieval/" class="md-nav__link">
         
   
   
@@ -1990,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/hybrid-retrieval-rrf/" class="md-nav__link">
+      <a href="../../06-rag/hybrid-retrieval-rrf/" class="md-nav__link">
         
   
   
@@ -2018,7 +2099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/qdrant/" class="md-nav__link">
+      <a href="../../06-rag/qdrant/" class="md-nav__link">
         
   
   
@@ -2046,7 +2127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/reranking/" class="md-nav__link">
+      <a href="../../06-rag/reranking/" class="md-nav__link">
         
   
   
@@ -2074,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/retrieval-eval-metrics/" class="md-nav__link">
+      <a href="../../06-rag/retrieval-eval-metrics/" class="md-nav__link">
         
   
   
@@ -2102,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/grounded-answers-injection-defense/" class="md-nav__link">
+      <a href="../../06-rag/grounded-answers-injection-defense/" class="md-nav__link">
         
   
   
@@ -2130,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-rag/_interview/" class="md-nav__link">
+      <a href="../../06-rag/_interview/" class="md-nav__link">
         
   
   
@@ -2212,7 +2293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/agent-topologies/" class="md-nav__link">
+      <a href="../../07-orchestration/agent-topologies/" class="md-nav__link">
         
   
   
@@ -2240,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/graph-engineering-mindset/" class="md-nav__link">
+      <a href="../../07-orchestration/graph-engineering-mindset/" class="md-nav__link">
         
   
   
@@ -2268,7 +2349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langchain-vs-langgraph/" class="md-nav__link">
+      <a href="../../07-orchestration/langchain-vs-langgraph/" class="md-nav__link">
         
   
   
@@ -2343,7 +2424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langchain/langchain-runnables-lcel/" class="md-nav__link">
+      <a href="../../07-orchestration/langchain/langchain-runnables-lcel/" class="md-nav__link">
         
   
   
@@ -2371,7 +2452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langchain/langchain-chains-vs-agents/" class="md-nav__link">
+      <a href="../../07-orchestration/langchain/langchain-chains-vs-agents/" class="md-nav__link">
         
   
   
@@ -2399,7 +2480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langchain/langchain-tool-integration/" class="md-nav__link">
+      <a href="../../07-orchestration/langchain/langchain-tool-integration/" class="md-nav__link">
         
   
   
@@ -2482,7 +2563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-state/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-state/" class="md-nav__link">
         
   
   
@@ -2510,7 +2591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-nodes/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-nodes/" class="md-nav__link">
         
   
   
@@ -2538,7 +2619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-edges/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-edges/" class="md-nav__link">
         
   
   
@@ -2566,7 +2647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-conditional-edges/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-conditional-edges/" class="md-nav__link">
         
   
   
@@ -2594,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-graph-patterns/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-graph-patterns/" class="md-nav__link">
         
   
   
@@ -2622,7 +2703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-agentic-patterns/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-agentic-patterns/" class="md-nav__link">
         
   
   
@@ -2650,7 +2731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/langgraph-checkpointing-hitl/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/langgraph-checkpointing-hitl/" class="md-nav__link">
         
   
   
@@ -2678,7 +2759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/langgraph/idempotency-and-side-effects/" class="md-nav__link">
+      <a href="../../07-orchestration/langgraph/idempotency-and-side-effects/" class="md-nav__link">
         
   
   
@@ -2714,7 +2795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-orchestration/_interview/" class="md-nav__link">
+      <a href="../../07-orchestration/_interview/" class="md-nav__link">
         
   
   
@@ -2796,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08-multi-agent-systems/supervisor-worker-teams/" class="md-nav__link">
+      <a href="../../08-multi-agent-systems/supervisor-worker-teams/" class="md-nav__link">
         
   
   
@@ -2824,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08-multi-agent-systems/mcp-fastmcp/" class="md-nav__link">
+      <a href="../../08-multi-agent-systems/mcp-fastmcp/" class="md-nav__link">
         
   
   
@@ -2852,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08-multi-agent-systems/agent-protocols-a2a-ap2/" class="md-nav__link">
+      <a href="../../08-multi-agent-systems/agent-protocols-a2a-ap2/" class="md-nav__link">
         
   
   
@@ -2880,7 +2961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08-multi-agent-systems/auth-and-multi-tenancy/" class="md-nav__link">
+      <a href="../../08-multi-agent-systems/auth-and-multi-tenancy/" class="md-nav__link">
         
   
   
@@ -2908,7 +2989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08-multi-agent-systems/_interview/" class="md-nav__link">
+      <a href="../../08-multi-agent-systems/_interview/" class="md-nav__link">
         
   
   
@@ -2990,7 +3071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/testing-agent-code/" class="md-nav__link">
+      <a href="../../09-production-readiness/testing-agent-code/" class="md-nav__link">
         
   
   
@@ -3018,7 +3099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/langfuse-tracing/" class="md-nav__link">
+      <a href="../../09-production-readiness/langfuse-tracing/" class="md-nav__link">
         
   
   
@@ -3046,7 +3127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/privacy-and-pii-handling/" class="md-nav__link">
+      <a href="../../09-production-readiness/privacy-and-pii-handling/" class="md-nav__link">
         
   
   
@@ -3074,7 +3155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/retry-fallback-patterns/" class="md-nav__link">
+      <a href="../../09-production-readiness/retry-fallback-patterns/" class="md-nav__link">
         
   
   
@@ -3102,7 +3183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/circuit-breaker-pattern/" class="md-nav__link">
+      <a href="../../09-production-readiness/circuit-breaker-pattern/" class="md-nav__link">
         
   
   
@@ -3130,7 +3211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/eval-driven-development-mindset/" class="md-nav__link">
+      <a href="../../09-production-readiness/eval-driven-development-mindset/" class="md-nav__link">
         
   
   
@@ -3158,7 +3239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/deterministic-scorers/" class="md-nav__link">
+      <a href="../../09-production-readiness/deterministic-scorers/" class="md-nav__link">
         
   
   
@@ -3186,7 +3267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/llm-judges-eval/" class="md-nav__link">
+      <a href="../../09-production-readiness/llm-judges-eval/" class="md-nav__link">
         
   
   
@@ -3214,7 +3295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/guardrails-injection-detection/" class="md-nav__link">
+      <a href="../../09-production-readiness/guardrails-injection-detection/" class="md-nav__link">
         
   
   
@@ -3242,7 +3323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/fastapi-fundamentals/" class="md-nav__link">
+      <a href="../../09-production-readiness/fastapi-fundamentals/" class="md-nav__link">
         
   
   
@@ -3270,7 +3351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/deployment-packaging/" class="md-nav__link">
+      <a href="../../09-production-readiness/deployment-packaging/" class="md-nav__link">
         
   
   
@@ -3298,7 +3379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/putting-it-all-together/" class="md-nav__link">
+      <a href="../../09-production-readiness/putting-it-all-together/" class="md-nav__link">
         
   
   
@@ -3326,7 +3407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="09-production-readiness/_interview/" class="md-nav__link">
+      <a href="../../09-production-readiness/_interview/" class="md-nav__link">
         
   
   
@@ -3408,7 +3489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10-interview-preparation/interview-prep-overview/" class="md-nav__link">
+      <a href="../../10-interview-preparation/interview-prep-overview/" class="md-nav__link">
         
   
   
@@ -3436,7 +3517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10-interview-preparation/round-1-fundamentals-rapid-fire/" class="md-nav__link">
+      <a href="../../10-interview-preparation/round-1-fundamentals-rapid-fire/" class="md-nav__link">
         
   
   
@@ -3464,7 +3545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10-interview-preparation/round-2-system-design/" class="md-nav__link">
+      <a href="../../10-interview-preparation/round-2-system-design/" class="md-nav__link">
         
   
   
@@ -3492,7 +3573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10-interview-preparation/round-3-production-reliability/" class="md-nav__link">
+      <a href="../../10-interview-preparation/round-3-production-reliability/" class="md-nav__link">
         
   
   
@@ -3520,7 +3601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10-interview-preparation/round-4-coding-and-debugging/" class="md-nav__link">
+      <a href="../../10-interview-preparation/round-4-coding-and-debugging/" class="md-nav__link">
         
   
   
@@ -3548,7 +3629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="10-interview-preparation/round-5-behavioral-and-tradeoffs/" class="md-nav__link">
+      <a href="../../10-interview-preparation/round-5-behavioral-and-tradeoffs/" class="md-nav__link">
         
   
   
@@ -3593,46 +3674,134 @@
 
 
 
-<h1 id="applied-ai-engineering-august-2026-cohort">Applied AI Engineering — August 2026 Cohort</h1>
-<p>A topic-first reference for the AI-agent stack behind applied agentic systems, grounded in the ShopSense/Kartway capstone as its running example, written for a reader who knows basic Python but nothing about this stack yet. Read <a href="capstone-milestone-map/">capstone-milestone-map</a> alongside it to see how each concept lands in the capstone.</p>
-<h2 id="start-here-guided-path">Start Here (guided path)</h2>
-<p>Read in this order — each stage assumes the ones before it.</p>
-<ol>
-<li><strong>00 — AI &amp; LLM basics</strong>, starting at <a href="00-ai-and-llm-basics/what-is-an-llm/">what-is-an-llm</a> — what an LLM actually is, tokens, context windows, prompting, and the fine-tune-vs-RAG decision.</li>
-<li><strong>01 — Python refresher</strong>, starting at <a href="01-python-refresher/python-data-types-and-mutability/">python-data-types-and-mutability</a> — the everyday Python the labs assume you already have fluent.</li>
-<li><strong>02 — Python for AI agents</strong>, starting at <a href="02-python-for-ai-agents/type-hints-basics/">type-hints-basics</a> — type hints, Pydantic, decorators, async — the patterns this stack leans on.</li>
-<li><strong>03 — Foundations</strong>, starting at <a href="03-foundations/raw-llm-clients/">raw-llm-clients</a> — calling an LLM directly, then through LiteLLM as a gateway, structured output, streaming, rate limits.</li>
-<li><strong>04 — Tool calling &amp; single agents</strong>, starting at <a href="04-tool-calling-single-agents/workflow-vs-agent-autonomy-spectrum/">workflow-vs-agent-autonomy-spectrum</a> — the autonomy spectrum, the agentic loop, tool calling, ReAct, reflection.</li>
-<li><strong>05 — Memory</strong>, starting at <a href="05-memory/memory-types/">memory-types</a> — memory types, Supermemory, context compression.</li>
-<li><strong>06 — RAG</strong>, starting at <a href="06-rag/ingestion/">ingestion</a> — ingestion through chunking, embeddings, hybrid retrieval, reranking, and retrieval eval.</li>
-<li><strong>07 — Orchestration</strong>, starting at <a href="07-orchestration/agent-topologies/">agent-topologies</a> — graph-engineering mindset, LangChain vs LangGraph, LangGraph state/nodes/edges/patterns.</li>
-<li><strong>08 — Multi-agent systems</strong>, starting at <a href="08-multi-agent-systems/supervisor-worker-teams/">supervisor-worker-teams</a> — supervisor-worker teams, MCP/FastMCP, agent protocols, auth &amp; multi-tenancy.</li>
-<li><strong>09 — Production readiness</strong>, starting at <a href="09-production-readiness/testing-agent-code/">testing-agent-code</a> — testing, tracing, privacy, retry/circuit-breaker, eval, guardrails, FastAPI, deployment.</li>
-</ol>
-<p>Once you've been through 00-09, <strong><a href="10-interview-preparation/interview-prep-overview/">interview-prep-overview</a></strong> (stage 10) is a separate mock-interview session — harder, real-interview-style questions organized by interview round (fundamentals, system design, production reliability, coding/debugging, behavioral) rather than by topic, meant to be worked through right before an actual interview.</p>
-<p>For a full page-by-page listing of every stage, use the sidebar nav (MkDocs) or the file explorer/graph view (Obsidian).</p>
-<h2 id="tools-libraries-quick-index">Tools &amp; Libraries quick index</h2>
-<p><em>(Alphabetical, cross-stage.)</em></p>
+<h1 id="dunder-methods-magic-methods">Dunder methods (magic methods)</h1>
+<p>The double-underscore methods (<code>__init__</code>, <code>__repr__</code>, <code>__eq__</code>, <code>__len__</code>, ...) that let a plain class plug into Python's own syntax — <code>print(x)</code>, <code>x == y</code>, <code>len(x)</code>, <code>for item in x</code> — instead of needing bespoke method calls for every operation.</p>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li><strong>FastAPI</strong> — <a href="09-production-readiness/fastapi-fundamentals/">fastapi-fundamentals</a></li>
-<li><strong>FastMCP</strong> — <a href="08-multi-agent-systems/mcp-fastmcp/">mcp-fastmcp</a>, <a href="07-orchestration/langchain/langchain-tool-integration/">langchain-tool-integration</a></li>
-<li><strong>Langfuse</strong> — <a href="09-production-readiness/langfuse-tracing/">langfuse-tracing</a>, <a href="09-production-readiness/eval-driven-development-mindset/">eval-driven-development-mindset</a></li>
-<li><strong>LangChain</strong> — <a href="07-orchestration/langchain-vs-langgraph/">langchain-vs-langgraph</a>, <a href="07-orchestration/langchain/langchain-runnables-lcel/">langchain-runnables-lcel</a>, <a href="07-orchestration/langchain/langchain-chains-vs-agents/">langchain-chains-vs-agents</a>, <a href="07-orchestration/langchain/langchain-tool-integration/">langchain-tool-integration</a></li>
-<li><strong>LangGraph</strong> — <a href="07-orchestration/agent-topologies/">agent-topologies</a>, <a href="07-orchestration/graph-engineering-mindset/">graph-engineering-mindset</a>, <a href="07-orchestration/langgraph/langgraph-state/">langgraph-state</a>, <a href="07-orchestration/langgraph/langgraph-nodes/">langgraph-nodes</a>, <a href="07-orchestration/langgraph/langgraph-edges/">langgraph-edges</a>, <a href="07-orchestration/langgraph/langgraph-conditional-edges/">langgraph-conditional-edges</a>, <a href="07-orchestration/langgraph/langgraph-graph-patterns/">langgraph-graph-patterns</a>, <a href="07-orchestration/langgraph/langgraph-agentic-patterns/">langgraph-agentic-patterns</a>, <a href="07-orchestration/langgraph/langgraph-checkpointing-hitl/">langgraph-checkpointing-hitl</a>, <a href="07-orchestration/langgraph/idempotency-and-side-effects/">idempotency-and-side-effects</a>, <a href="08-multi-agent-systems/auth-and-multi-tenancy/">auth-and-multi-tenancy</a>, <a href="08-multi-agent-systems/supervisor-worker-teams/">supervisor-worker-teams</a></li>
-<li><strong>LiteLLM</strong> — <a href="03-foundations/litellm-basics/">litellm-basics</a>, <a href="03-foundations/litellm-as-gateway/">litellm-as-gateway</a>, and used across most of stages 00/03/04/05</li>
-<li><strong>Pydantic</strong> — <a href="02-python-for-ai-agents/pydantic-basics/">pydantic-basics</a>, <a href="03-foundations/structured-output-repair-loops/">structured-output-repair-loops</a>, <a href="09-production-readiness/fastapi-fundamentals/">fastapi-fundamentals</a>, <a href="09-production-readiness/guardrails-injection-detection/">guardrails-injection-detection</a></li>
-<li><strong>Qdrant</strong> — <a href="06-rag/qdrant/">qdrant</a>, <a href="06-rag/dense-retrieval/">dense-retrieval</a></li>
-<li><strong>Ragas / DeepEval / TruLens</strong> — <a href="09-production-readiness/llm-judges-eval/">llm-judges-eval</a>, <a href="09-production-readiness/eval-driven-development-mindset/">eval-driven-development-mindset</a></li>
-<li><strong>Supermemory</strong> — <a href="05-memory/supermemory/">supermemory</a>, <a href="05-memory/memory-types/">memory-types</a></li>
-<li><strong>tenacity / pybreaker</strong> — <a href="09-production-readiness/retry-fallback-patterns/">retry-fallback-patterns</a>, <a href="09-production-readiness/circuit-breaker-pattern/">circuit-breaker-pattern</a></li>
-<li><strong>rank_bm25 / sentence-transformers</strong> — <a href="06-rag/bm25-sparse-retrieval/">bm25-sparse-retrieval</a>, <a href="06-rag/reranking/">reranking</a></li>
+<li><a href="../python-data-types-and-mutability/">python-data-types-and-mutability</a></li>
+<li><a href="../lists-tuples-sets-dicts/">lists-tuples-sets-dicts</a></li>
 </ul>
+<h2 id="in-plain-english">In plain English</h2>
+<p>"Dunder" is short for <strong>d</strong>ouble <strong>under</strong>score — <code>__init__</code> is pronounced "dunder init." These are methods with a fixed, reserved name that Python's interpreter calls automatically in response to a language-level operation, rather than a name you call directly. When you write <code>len(my_list)</code>, Python doesn't have special-cased logic for every type that could appear there — it calls <code>my_list.__len__()</code> and returns whatever that returns. <code>x == y</code> calls <code>x.__eq__(y)</code>. <code>for item in x:</code> repeatedly calls <code>x.__next__()</code> (after getting an iterator via <code>x.__iter__()</code>). <code>MyClass(a, b)</code> calls <code>MyClass.__init__(self, a, b)</code> after the object itself is allocated.</p>
+<p>The point of this design: any class you write can opt into that same syntax by defining the matching dunder, instead of the language needing built-in special cases for user-defined types. A class with no dunders defined still gets default behavior inherited from <code>object</code> — printing it shows <code>&lt;MyClass object at 0x...&gt;</code>, and <code>==</code> falls back to identity comparison (<code>is</code>) — which is usually not what you want once a class represents actual data.</p>
+<h2 id="core-mechanics">Core mechanics</h2>
+<table>
+<thead>
+<tr>
+<th>Dunder</th>
+<th>Called by</th>
+<th>Default (inherited from <code>object</code>) if not defined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__(self, ...)</code></td>
+<td><code>MyClass(...)</code></td>
+<td>no-op — just sets whatever <code>__new__</code> already allocated</td>
+</tr>
+<tr>
+<td><code>__repr__(self)</code></td>
+<td><code>repr(x)</code>, the interactive shell, inside <code>[x]</code>/dict display</td>
+<td><code>&lt;MyClass object at 0x...&gt;</code></td>
+</tr>
+<tr>
+<td><code>__str__(self)</code></td>
+<td><code>str(x)</code>, <code>print(x)</code>, <code>f"{x}"</code></td>
+<td>falls back to <code>__repr__</code> if not defined</td>
+</tr>
+<tr>
+<td><code>__eq__(self, other)</code></td>
+<td><code>x == y</code></td>
+<td>falls back to <code>is</code> (identity)</td>
+</tr>
+<tr>
+<td><code>__hash__(self)</code></td>
+<td><code>hash(x)</code>, using <code>x</code> as a dict key / set member</td>
+<td>identity-based hash — <strong>but</strong> defining <code>__eq__</code> without <code>__hash__</code> sets this to <code>None</code>, making the object unhashable</td>
+</tr>
+<tr>
+<td><code>__len__(self)</code></td>
+<td><code>len(x)</code></td>
+<td>not defined — raises <code>TypeError</code></td>
+</tr>
+<tr>
+<td><code>__iter__(self)</code></td>
+<td><code>for item in x:</code>, <code>list(x)</code></td>
+<td>not defined — raises <code>TypeError</code></td>
+</tr>
+<tr>
+<td><code>__getitem__(self, key)</code></td>
+<td><code>x[key]</code></td>
+<td>not defined — raises <code>TypeError</code></td>
+</tr>
+<tr>
+<td><code>__call__(self, ...)</code></td>
+<td><code>x(...)</code> — makes an <em>instance</em> callable like a function</td>
+<td>not defined — raises <code>TypeError</code></td>
+</tr>
+<tr>
+<td><code>__enter__(self)</code> / <code>__exit__(self, exc_type, exc_val, tb)</code></td>
+<td><code>with x as ...:</code></td>
+<td>not defined — raises <code>TypeError</code> (not a context manager)</td>
+</tr>
+</tbody>
+</table>
+<p><code>__eq__</code>/<code>__hash__</code> are worth double-checking together: overriding <code>__eq__</code> to compare by value (the usual reason to override it) silently makes instances unhashable unless <code>__hash__</code> is also defined — Python does this deliberately, because two objects that compare equal but hash differently would break dict/set lookups.</p>
+<h2 id="sample-code">Sample code</h2>
+<p>A minimal value-object class showing the three dunders every data-carrying class typically wants — <code>__init__</code>, <code>__repr__</code>, <code>__eq__</code> — and what breaks without them:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticket_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ticket_id</span> <span class="o">=</span> <span class="n">ticket_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Ticket(ticket_id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ticket_id</span><span class="si">!r}</span><span class="s2">, status=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Ticket</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">NotImplemented</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ticket_id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">ticket_id</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">status</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">Ticket</span><span class="p">(</span><span class="s2">&quot;T-100&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">Ticket</span><span class="p">(</span><span class="s2">&quot;T-100&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>          <span class="c1"># Ticket(ticket_id=&#39;T-100&#39;, status=&#39;open&#39;) — thanks to __repr__</span>
+<span class="n">t1</span> <span class="o">==</span> <span class="n">t2</span>            <span class="c1"># True — field-by-field, thanks to __eq__</span>
+<span class="n">t1</span> <span class="ow">is</span> <span class="n">t2</span>             <span class="c1"># False — still two distinct objects in memory</span>
+</code></pre></div>
+<p>Without <code>__repr__</code>, <code>print(t1)</code> would show <code>&lt;__main__.Ticket object at 0x7f...&gt;</code> — useless in a test failure message or a log line. Without <code>__eq__</code>, <code>t1 == t2</code> would fall back to <code>is</code> and return <code>False</code>, because they're two separate objects even though every field matches — the exact check a golden-eval test comparing "actual result == expected result" depends on.</p>
+<h2 id="how-this-shows-up-in-the-capstone">How this shows up in the capstone</h2>
+<p>A golden-eval test that asserts <code>actual_response == expected_response</code> on a structured object only works if that object's class defines <code>__eq__</code> by value — this is precisely what <a href="../../02-python-for-ai-agents/pydantic-basics/">pydantic-basics</a>'s <code>BaseModel</code> gives every model for free, and is why comparing two parsed Pydantic objects with <code>==</code> "just works" without writing <code>__eq__</code> yourself. Resource-holding objects in this stack (an HTTP client, a Qdrant connection) are also commonly used as context managers (<code>with client: ...</code>), which is <code>__enter__</code>/<code>__exit__</code> under the hood — the same mechanism guaranteeing cleanup runs even if the block raises.</p>
+<h2 id="production-gotchas-best-practices">Production gotchas &amp; best practices</h2>
+<ul>
+<li>Overriding <code>__eq__</code> without <code>__hash__</code> doesn't leave the old identity-based hash in place — Python sets <code>__hash__</code> to <code>None</code> on any class that defines <code>__eq__</code> but not <code>__hash__</code>, so instances silently become unusable as dict keys or set members until <code>__hash__</code> is defined too (or explicitly re-inherited: <code>__hash__ = object.__hash__</code>) (<a href="https://docs.python.org/3/reference/datamodel.html#object.__hash__">Python data model — object.__hash__</a>, accessed 2026-08-21).</li>
+<li><code>__repr__</code> is meant for developers (unambiguous, ideally something that could recreate the object) and <code>__str__</code> is meant for end users (readable); defining only <code>__repr__</code> is the common shortcut, since <code>str()</code>/<code>print()</code> fall back to it when <code>__str__</code> is absent — but the reverse isn't true, so a class that needs a friendly <code>str()</code> distinct from a debug <code>repr()</code> must define both explicitly (<a href="https://docs.python.org/3/reference/datamodel.html#object.__repr__">Python data model — object.__repr__</a>, accessed 2026-08-21).</li>
+<li>Returning <code>NotImplemented</code> (not <code>False</code>) from <code>__eq__</code> when <code>other</code> is an incompatible type lets Python fall back to trying <code>other.__eq__(self)</code> before giving up — returning a bare <code>False</code> forecloses that fallback and can produce wrong answers when comparing against an unrelated type.</li>
+</ul>
+<h2 id="course-vs-production">Course vs. production</h2>
+<p>Hand-writing <code>__init__</code>/<code>__repr__</code>/<code>__eq__</code> (as above) is worth doing once to see the mechanism, but production code rarely writes them by hand for plain data-holding classes: the standard library's <code>@dataclass</code> decorator generates <code>__init__</code>, <code>__repr__</code>, and <code>__eq__</code> from type-annotated fields automatically, and <a href="../../02-python-for-ai-agents/pydantic-basics/">pydantic-basics</a>'s <code>BaseModel</code> goes further — generating the same dunders <em>and</em> runtime validation. This stack uses <code>BaseModel</code> specifically because validation is needed on top of the dunders; a plain <code>@dataclass</code> would give the dunders without the validation.</p>
+<h2 id="related">Related</h2>
+<ul>
+<li><strong>Builds on</strong> — <a href="../lists-tuples-sets-dicts/">lists-tuples-sets-dicts</a></li>
+<li><strong>Prerequisite for</strong> — <a href="../../02-python-for-ai-agents/pydantic-basics/">pydantic-basics</a></li>
+</ul>
+<h2 id="sources">Sources</h2>
+<p><strong>Lab sources</strong></p>
+<p>None — this page has no matching lab or notebook; see task framing (01-python-refresher is lab/notebook-silent by design).</p>
+<p><strong>Web sources</strong>
+- <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization">Python 3 data model — Basic customization</a> — <code>__init__</code>, <code>__repr__</code>, <code>__str__</code>, <code>__eq__</code>, <code>__hash__</code> reference semantics, accessed 2026-08-21
+- <a href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">Python 3 data model — Emulating container types</a> — <code>__len__</code>, <code>__getitem__</code>, <code>__iter__</code>, accessed 2026-08-21
+- <a href="https://realpython.com/python-magic-methods/">Real Python — Python's Magic Methods</a> — worked examples across the common dunder groups, accessed 2026-08-21
+</content></p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -3688,12 +3857,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.top", "toc.integrate", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="javascripts/external-links.js"></script>
+        <script src="../../javascripts/external-links.js"></script>
       
     
   </body>
