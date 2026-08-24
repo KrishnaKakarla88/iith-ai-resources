@@ -76,11 +76,21 @@ Abstract AI art reads as slop and teaches nothing. Use the bundled Pillow templa
 
 Both scripts resolve fonts relative to their own file location (`assets/fonts/`) — no system font dependency, works wherever the skill folder is placed.
 
-**Delivery:** Krishna uploads images to Buffer himself. After generating slides, give the local file path(s) — do not publish an Artifact preview by default; that's extra work he didn't ask for. Only publish an Artifact if he explicitly asks to preview/view them in-panel.
+**Delivery:** default is Krishna uploads images to Buffer himself — after generating slides, give the local file path(s), and do not publish an Artifact preview by default (that's extra work he didn't ask for; only do it if he explicitly asks to preview/view them in-panel). If he instead asks to post directly via the Buffer MCP tools, follow the Buffer Delivery section below.
 
 **Asset storage:** save generated visuals to `assets/social-posts/NN-slug/` at the repo root (numbered per post — carousel slides as `slide-01.png`, `slide-02.png`, ...; single image as `image.png`), not a scratch/temp path — keeps output traceable across posting waves.
 
 Always generate via these scripts. Never hand-craft an AI image prompt for this niche.
+
+## Buffer Delivery (when posting directly via the Buffer MCP tools)
+
+- **Draft only, never live, unless explicitly told otherwise.** Every `create_post` call defaults to `saveToDraft: true`. Never queue, schedule, or publish a real post to a live channel without Krishna explicitly asking for that specific post.
+- **Only these two channels are in scope**: LinkedIn ("Krishna Kakarla" profile) and Instagram ("krishnakakarla88" business). The connected YouTube channel is out of scope — never post or draft to it unless Krishna explicitly asks.
+- **Images need a public URL** — Buffer's `assets` field takes a direct file URL, not a local path or upload. Since generated slides live in `assets/social-posts/NN-slug/` in this git repo (public GitHub remote), commit + push that post's folder first, then use the resulting `raw.githubusercontent.com/.../main/...` URLs as the asset sources. Confirm the push landed (or that the file already exists at that URL) before calling `create_post`.
+- **LinkedIn requires `schedulingType: "automatic"`** — `"notification"` errors out on LinkedIn channels ("Notification scheduling is not supported for linkedin channels").
+- **Instagram posts need `metadata.instagram: { type: "post", shouldShareToFeed: true }`** alongside the image assets.
+- After creating a draft, verify it with `get_post` (or `list_posts` filtered to `status: ["draft"]`) and report the post ID(s) back — Buffer's own UI often files API-created drafts under a separate "Drafts" tab/filter per channel rather than the main queue/calendar view, so a successful creation can still look invisible to Krishna at first glance; don't assume something's wrong without checking via the API first.
+- Always tell Krishna which organization/channel names were used (per the Buffer MCP server's own instructions) — don't just cite IDs.
 
 ## Accuracy — Always Re-Read the Live Source, Never Post From Memory
 
