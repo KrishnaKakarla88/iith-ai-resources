@@ -7,11 +7,11 @@ description: Draft LinkedIn + Instagram posts teaching Applied AI Engineering co
 
 Output LinkedIn + Instagram copy, plus a matching visual (carousel or single image), every time.
 
-## Tone: Explained Caveman — Short Lines, Not Cryptic Ones
+## Tone: Balanced Caveman — Short Lines, Not Cryptic Ones
 
-Short sentences, no filler, no hype words. But every line has to stand on its own for someone refreshing the topic or meeting it for the first time — a term never gets dropped without the phrase that explains what it does or why it matters. Line-per-fact structure stays; each line just carries a full thought instead of a compressed label.
+Short sentences, no filler, no hype words. But every line has to stand on its own for someone refreshing the topic or meeting it for the first time — a term never gets dropped without the phrase that explains what it does or why it matters. Line-per-fact structure stays; each line carries one real explanatory clause, trimmed of secondary qualifiers, not a compressed label and not a full multi-clause sentence either.
 
-- One line = one fact or one step, but written as a real explanatory sentence (subject + what it does + why it matters), not a term followed by a colon-fragment. Blank line between lines.
+- One line = one fact or one step: subject + what it does/means, in as few words as that still takes. Cut secondary qualifiers ("the one-time process of," "what happens every time you," "the already-") that don't change what the reader understands. Blank line between lines.
 - Match the vocabulary the source wiki page itself uses — if the page calls something "parametric knowledge" or "autoregressive," use that term, then explain it in the same breath, don't invent a simpler synonym that drifts from the source.
 - Each line should be dense (a real term, an import, a mechanism) — never vague filler stretched out to sound simple, and never so compressed that a newcomer has to fill in the connective logic themselves.
 - Combine cause + scope + verdict only when they're truly one thought.
@@ -20,8 +20,9 @@ Short sentences, no filler, no hype words. But every line has to stand on its ow
 - Never say "built in public" or similar framing — the work isn't pitched as a public-build narrative.
 - Never ask the audience to pick what gets covered next (no "which should I do first?"). Krishna sets the roadmap; closing questions invite discussion of the concept itself, not content planning.
 
-✓ "An LLM's knowledge lives entirely in its weights — billions of numeric parameters fixed once training ends." — short line, but a newcomer doesn't need outside context to follow it.
-✓ "SystemMessage sets behavior. Use SystemMessagePromptTemplate when it needs variables." — still fine when the line is already self-contained at that length.
+✓ "An LLM's knowledge lives in its weights — billions of parameters fixed after training." — short, but a newcomer doesn't need outside context to follow it.
+✓ "SystemMessage sets behavior. Use SystemMessagePromptTemplate when it needs variables." — still fine when the line is already this tight at full length.
+✗ "An LLM's knowledge lives entirely in its weights — billions of numeric parameters fixed once training ends." — correct content, but "entirely" and "numeric" and "once" are qualifiers that don't add anything a reader needs; trim them.
 ✗ "Weights: billions of frozen numbers, set once during training." — a label-fragment, not a sentence; reads as a flashcard, not teaching.
 ✗ "AI is transforming how we build apps!" — short but empty, this is hype, not teaching.
 
@@ -85,6 +86,7 @@ Always generate via these scripts. Never hand-craft an AI image prompt for this 
 ## Buffer Delivery (when posting directly via the Buffer MCP tools)
 
 - **Draft only, never live, unless explicitly told otherwise.** Every `create_post` call defaults to `saveToDraft: true`. Never queue, schedule, or publish a real post to a live channel without Krishna explicitly asking for that specific post.
+- **`edit_post` does NOT preserve draft status by omission.** It re-validates the whole post from what you send, not a merge — leaving `saveToDraft` off an edit call flips the post from `draft` to `scheduled` (live-armed to auto-post at its `dueAt`), even if it was already a draft and you only meant to change the text or an asset URL. Pass `saveToDraft: true` explicitly on **every** `edit_post` call, every time, no exceptions. After any edit, check the returned `status` field is `"draft"` before moving on — if it isn't, immediately re-issue the edit with `saveToDraft: true` (and the full text/assets/metadata again, since a bare `saveToDraft`-only retry gets rejected as "Post must have either text or media").
 - **Only these two channels are in scope**: LinkedIn ("Krishna Kakarla" profile) and Instagram ("krishnakakarla88" business). The connected YouTube channel is out of scope — never post or draft to it unless Krishna explicitly asks.
 - **Images need a public URL** — Buffer's `assets` field takes a direct file URL, not a local path or upload. Since generated slides live in `assets/social-posts/NN-slug/` in this git repo (public GitHub remote), commit + push that post's folder first, then use the resulting `raw.githubusercontent.com/.../main/...` URLs as the asset sources. Confirm the push landed (or that the file already exists at that URL) before calling `create_post`.
 - **LinkedIn requires `schedulingType: "automatic"`** — `"notification"` errors out on LinkedIn channels ("Notification scheduling is not supported for linkedin channels").
