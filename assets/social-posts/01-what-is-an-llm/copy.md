@@ -1,9 +1,9 @@
 --- LINKEDIN ---
 What is an LLM, actually?
 
-A next-token predictor. A huge set of trained weights that, given some text, outputs a probability over what token comes next — nothing more mystical than that, and everything else in this field is built on top of that one mechanism.
+A next-token predictor. Trained weights that, given some text, output a probability over the next token — nothing more mystical than that, and everything else in this field builds on it.
 
-Two consequences most people skip past: its knowledge is frozen at a training cutoff (no live link to today's weather, price, or your database — that has to come from a tool call or retrieval), and it has no hands (it can only ever produce text, even text shaped like a function call — something else has to actually run the action).
+Two consequences most people skip past: its knowledge is frozen at a training cutoff (no live link to today's weather, price, or your database — needs a tool call or retrieval), and it has no hands (it can only produce text, even text shaped like a function call — something else has to run the action).
 
 The one most worth internalizing: fluent isn't the same as correct. Training optimizes for statistically plausible continuations, not verified truth.
 
