@@ -47,14 +47,23 @@ def single_image(filename, kicker, headline, items, footer, series="APPLIED AI E
 
     head_lines = wrap(d, headline, f_head, W - 2*margin)
     desc_wrapped = [wrap(d, desc, f_desc, desc_max_width) for _, desc in items]
-    # each item needs room for its name line + however many desc lines it wraps to
-    row_heights = [58 + len(dw) * 34 + 26 for dw in desc_wrapped]  # +26 breathing room between rows
-
-    # measure content block height to center it, same approach as the carousel template
-    content_h = 48 + len(head_lines) * 66 + 16 + 6 + 44 + sum(row_heights)
     bottom_limit = H - 150 - 30  # leave room for the footer code block
+
+    # each item needs room for its name line + however many desc lines it wraps to;
+    # if the natural spacing would overflow the available area (too many items /
+    # too-long descriptions), shrink the inter-row gap first as a safety fallback
+    # rather than silently drawing past the footer code block.
+    def block_height(gap):
+        row_heights = [58 + len(dw) * 34 + gap for dw in desc_wrapped]
+        return 48 + len(head_lines) * 66 + 16 + 6 + 44 + sum(row_heights), row_heights
+
     top = 145
     available = bottom_limit - top
+    gap = 26
+    content_h, row_heights = block_height(gap)
+    if content_h > available:
+        gap = max(6, gap - (content_h - available) // max(1, len(items)))
+        content_h, row_heights = block_height(gap)
     y = top + max(0, (available - content_h) // 2)
 
     d.text((margin, y), kicker.upper(), font=f_kick, fill=AMBER)
