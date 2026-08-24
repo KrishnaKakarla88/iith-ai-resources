@@ -28,6 +28,82 @@ def wrap(draw, text, font, max_width):
         lines.append(cur)
     return lines
 
+# --- rich text: supports **bold** spans inside a body line, so a term being
+# defined can be visually set apart from its explanation on the same line. ---
+
+def _parse_bold_chars(text):
+    """text with **markers** -> list of (char, is_bold)."""
+    out, bold, i = [], False, 0
+    while i < len(text):
+        if text[i:i+2] == "**":
+            bold = not bold
+            i += 2
+            continue
+        out.append((text[i], bold))
+        i += 1
+    return out
+
+def _chars_to_words(chars):
+    """list of (char, is_bold) -> list of words, each a list of (char, is_bold).
+    A word can be mixed bold/regular (e.g. "Query:" where only "Query" is bold)."""
+    words, cur = [], []
+    for ch, bold in chars:
+        if ch == " ":
+            if cur:
+                words.append(cur)
+                cur = []
+        else:
+            cur.append((ch, bold))
+    if cur:
+        words.append(cur)
+    return words
+
+def _word_runs(word_chars):
+    """Collapse a word's per-char (char, is_bold) into contiguous (text, is_bold) runs."""
+    runs, cur_text, cur_bold = [], "", word_chars[0][1]
+    for ch, bold in word_chars:
+        if bold == cur_bold:
+            cur_text += ch
+        else:
+            runs.append((cur_text, cur_bold))
+            cur_text, cur_bold = ch, bold
+    runs.append((cur_text, cur_bold))
+    return runs
+
+def _word_width(draw, word_chars, font_reg, font_bold):
+    return sum(
+        draw.textlength(text, font=(font_bold if bold else font_reg))
+        for text, bold in _word_runs(word_chars)
+    )
+
+def wrap_rich(draw, text, font_reg, font_bold, max_width):
+    """Wrap text (with optional **bold** spans) into lines of words for draw_rich_line."""
+    words = _chars_to_words(_parse_bold_chars(text))
+    space_w = draw.textlength(" ", font=font_reg)
+    lines, cur_line, cur_width = [], [], 0
+    for word in words:
+        ww = _word_width(draw, word, font_reg, font_bold)
+        extra = space_w if cur_line else 0
+        if cur_width + extra + ww <= max_width or not cur_line:
+            cur_line.append(word)
+            cur_width += extra + ww
+        else:
+            lines.append(cur_line)
+            cur_line, cur_width = [word], ww
+    if cur_line:
+        lines.append(cur_line)
+    return lines
+
+def draw_rich_line(draw, x, y, line_words, font_reg, font_bold, fill):
+    cx = x
+    space_w = draw.textlength(" ", font=font_reg)
+    for word in line_words:
+        for text, bold in _word_runs(word):
+            f = font_bold if bold else font_reg
+            draw.text((cx, y), text, font=f, fill=fill)
+            cx += draw.textlength(text, font=f)
+        cx += space_w
+
 def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, closing_q=None, series="APPLIED AI ENGINEERING"):
     img = Image.new("RGB", (W, H), WHITE)
     d = ImageDraw.Draw(img)
@@ -49,10 +125,11 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
     f_kick = ImageFont.truetype(FONT_BOLD, 30)
     f_head = ImageFont.truetype(FONT_BOLD, 66)
     f_body = ImageFont.truetype(FONT_REG, 38)
+    f_body_bold = ImageFont.truetype(FONT_BOLD, 38)
     f_q = ImageFont.truetype(FONT_BOLD, 32)
 
     head_lines = wrap(d, headline, f_head, W - 2*margin)
-    body_wrapped = [wrap(d, line, f_body, W - 2*margin) for line in body_lines]
+    body_wrapped = [wrap_rich(d, line, f_body, f_body_bold, W - 2*margin) for line in body_lines]
 
     # measure total content block height so short slides don't float in a sea of white space
     content_h = 0
@@ -89,7 +166,7 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
 
     for wrapped in body_wrapped:
         for line in wrapped:
-            d.text((margin, y), line, font=f_body, fill=NAVY)
+            draw_rich_line(d, margin, y, line, f_body, f_body_bold, NAVY)
             y += 50
         y += 18
 

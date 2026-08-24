@@ -26,6 +26,20 @@ Short sentences, no filler, no hype words. But every line has to stand on its ow
 ✗ "Weights: billions of frozen numbers, set once during training." — a label-fragment, not a sentence; reads as a flashcard, not teaching.
 ✗ "AI is transforming how we build apps!" — short but empty, this is hype, not teaching.
 
+## Ground Abstract Concepts With A Real Example
+
+An abstract mechanism (tokenization, an attention head, a decode step) reads as pure theory until it's tied to a concrete instance — a real word, a real number, a real snippet. Wherever a concept is genuinely abstract (not already concrete, like a code import), work in a short, real example rather than leaving the definition to stand alone. Pull the example from the source wiki page when it has one; invent a small, obviously-correct one (a real word split into real subword pieces, a real number plugged into a real formula) when it doesn't — never a vague placeholder like "some word" or "a sentence."
+
+✓ "A tokenizer splits words into pieces. Example: **\"tokenization\"** splits into **\"token\"** + **\"ization\"**." — the example makes the mechanism concrete instead of asserted.
+✗ "A tokenizer splits words into subword pieces based on frequency." — technically correct, but a first-time reader has nothing to picture.
+
+## Bold The Term Being Defined
+
+When a line defines or names something ("X is Y," "X: Y," a term-then-explanation pattern — including anything that started life as a wiki table row, e.g. Query/Key/Value or Prefill/Decode), wrap the term itself in `**double asterisks**` in `body_lines` so it renders bold against the regular-weight explanation. `carousel_template.py`'s `slide()` and `draw_rich_line()` parse `**bold**` spans inline (mixing bold and regular text on the same wrapped line); `single_image_template.py`'s `items` list already bolds each row's `name` automatically — no markup needed there. Don't bold whole sentences or every noun — only the specific term a reader should be able to scan for.
+
+✓ "**Query** is what a token looks for. **Key** is what it offers others." — a reader scanning the slide can immediately find each term.
+✗ "Query is what a token looks for. Key is what it offers others." — same content, but nothing helps the eye separate the terms from the prose.
+
 ## Mode: Teaching-First (default, always)
 
 Teach the concept plainly first — imports, syntax, how it fits, what it's for. Real lab/capstone/production experience is an **optional bonus**, added after the teaching only when a real moment exists (a bug, a ratio, an issue). Never invent or force one.

@@ -74,22 +74,30 @@ def single_image(filename, kicker, headline, items, footer, series="APPLIED AI E
     d.rectangle([margin, code_y, W-margin, code_y+code_h], fill=CODE_BG)
     for i, cx in enumerate([margin+22, margin+42, margin+62]):
         d.ellipse([cx-6, code_y+14, cx+6, code_y+26], fill=(90,98,110))
-    f_mono = ImageFont.truetype(FONT_MONO, 24)
-    d.text((margin+22, code_y+40), footer, font=f_mono, fill=CODE_TEXT)
+    # shrink font until the footer line fits on one row inside the block
+    code_max_width = W - 2*margin - 44
+    mono_size = 24
+    f_mono = ImageFont.truetype(FONT_MONO, mono_size)
+    while mono_size > 14 and d.textlength(footer, font=f_mono) > code_max_width:
+        mono_size -= 2
+        f_mono = ImageFont.truetype(FONT_MONO, mono_size)
+    d.text((margin+22, code_y+40 - mono_size//2 + 8), footer, font=f_mono, fill=CODE_TEXT)
 
     d.rectangle([0, H-12, W, H], fill=NAVY)
     img.save(filename)
 
-single_image(
-    "single_v1.png",
-    "Teaching Series",
-    "LangChain Message Types",
-    [
-        ("HumanMessage", "What the user says"),
-        ("AIMessage", "What the model replies"),
-        ("SystemMessage", "Sets behavior and rules"),
-        ("ToolMessage", "Result after a tool call"),
-    ],
-    "from langchain_core.messages import *"
-)
-print("done")
+if __name__ == "__main__":
+    # demo/self-test only — does not run on import
+    single_image(
+        "single_v1.png",
+        "Teaching Series",
+        "LangChain Message Types",
+        [
+            ("HumanMessage", "What the user says"),
+            ("AIMessage", "What the model replies"),
+            ("SystemMessage", "Sets behavior and rules"),
+            ("ToolMessage", "Result after a tool call"),
+        ],
+        "from langchain_core.messages import *"
+    )
+    print("done")
