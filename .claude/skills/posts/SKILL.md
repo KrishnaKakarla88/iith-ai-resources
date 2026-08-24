@@ -87,7 +87,7 @@ Abstract AI art reads as slop and teaches nothing. Use the bundled Pillow templa
 **Files (bundled):**
 - `assets/fonts/` — Liberation Sans Bold, Regular, Mono (SIL Open Font License, bundled so this works on any machine without system font installs)
 - `carousel_template.py` → `slide()` per slide: slide_no, total, kicker, headline, body_lines, optional code/closing_q. Title slide = no code. Content slide = kicker "Role N"/"Step N" + code. Closing slide = kicker "Takeaway" + closing question.
-- `single_image_template.py` → `single_image()`: headline + list of (name, description) + footer code line.
+- `single_image_template.py` → `single_image()`: headline + list of (name, description) + footer code line. Keep each item's `description` to roughly one line (~50-55 chars) — the template wraps and vertically centers automatically, but with 4-5 items a description that wraps to 2+ lines can still push past the footer code block. If a description needs more than one line to say something real, that item belongs in a carousel slide instead, not squeezed into a single-image row.
 
 Both scripts resolve fonts relative to their own file location (`assets/fonts/`) — no system font dependency, works wherever the skill folder is placed.
 

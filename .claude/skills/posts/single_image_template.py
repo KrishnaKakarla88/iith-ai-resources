@@ -38,13 +38,29 @@ def single_image(filename, kicker, headline, items, footer, series="APPLIED AI E
     d.text((margin, 50), series, font=f_series, fill=GRAY)
     d.line([(margin, 96), (W-margin, 96)], fill=(230,230,230), width=2)
 
-    y = 145
     f_kick = ImageFont.truetype(FONT_BOLD, 28)
+    f_head = ImageFont.truetype(FONT_BOLD, 58)
+    f_name = ImageFont.truetype(FONT_BOLD, 38)
+    f_desc = ImageFont.truetype(FONT_REG, 30)
+    tx = margin + 74
+    desc_max_width = W - tx - margin
+
+    head_lines = wrap(d, headline, f_head, W - 2*margin)
+    desc_wrapped = [wrap(d, desc, f_desc, desc_max_width) for _, desc in items]
+    # each item needs room for its name line + however many desc lines it wraps to
+    row_heights = [58 + len(dw) * 34 + 26 for dw in desc_wrapped]  # +26 breathing room between rows
+
+    # measure content block height to center it, same approach as the carousel template
+    content_h = 48 + len(head_lines) * 66 + 16 + 6 + 44 + sum(row_heights)
+    bottom_limit = H - 150 - 30  # leave room for the footer code block
+    top = 145
+    available = bottom_limit - top
+    y = top + max(0, (available - content_h) // 2)
+
     d.text((margin, y), kicker.upper(), font=f_kick, fill=AMBER)
     y += 48
 
-    f_head = ImageFont.truetype(FONT_BOLD, 58)
-    for line in wrap(d, headline, f_head, W - 2*margin):
+    for line in head_lines:
         d.text((margin, y), line, font=f_head, fill=NAVY)
         y += 66
     y += 16
@@ -52,21 +68,20 @@ def single_image(filename, kicker, headline, items, footer, series="APPLIED AI E
     y += 44
 
     # items: list of (name, desc)
-    f_name = ImageFont.truetype(FONT_BOLD, 38)
-    f_desc = ImageFont.truetype(FONT_REG, 30)
-    row_h = 108
+    f_num = ImageFont.truetype(FONT_BOLD, 26)
     for i, (name, desc) in enumerate(items):
-        # accent number chip
+        # accent number chip, aligned to the name's line
         d.ellipse([margin, y, margin+52, y+52], outline=AMBER, width=3)
-        f_num = ImageFont.truetype(FONT_BOLD, 26)
         num = str(i+1)
         nw = d.textlength(num, font=f_num)
         d.text((margin+26-nw/2, y+12), num, font=f_num, fill=AMBER)
 
-        tx = margin + 74
         d.text((tx, y-2), name, font=f_name, fill=NAVY)
-        d.text((tx, y+42), desc, font=f_desc, fill=GRAY)
-        y += row_h
+        dy = y + 42
+        for line in desc_wrapped[i]:
+            d.text((tx, dy), line, font=f_desc, fill=GRAY)
+            dy += 34
+        y += row_heights[i]
 
     # footer code block
     code_h = 80
