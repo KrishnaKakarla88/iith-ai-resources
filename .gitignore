@@ -24,3 +24,6 @@ m4_policy_RAG/
 m5_fastmcp/
 m5_langgraph/
 m7_langfuse/
+
+assets/*
+!assets/social-posts/
