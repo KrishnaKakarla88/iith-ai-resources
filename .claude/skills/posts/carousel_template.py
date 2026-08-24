@@ -101,8 +101,14 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
         # fake window dots
         for i, cx in enumerate([margin+24, margin+44, margin+64]):
             d.ellipse([cx-6, code_y+16, cx+6, code_y+28], fill=(90,98,110))
-        f_mono = ImageFont.truetype(FONT_MONO, 28)
-        d.text((margin+24, code_y+44), code, font=f_mono, fill=CODE_TEXT)
+        # shrink font until the code line fits on one row inside the block
+        code_max_width = W - 2*margin - 48
+        mono_size = 28
+        f_mono = ImageFont.truetype(FONT_MONO, mono_size)
+        while mono_size > 14 and d.textlength(code, font=f_mono) > code_max_width:
+            mono_size -= 2
+            f_mono = ImageFont.truetype(FONT_MONO, mono_size)
+        d.text((margin+24, code_y+45 - mono_size//2), code, font=f_mono, fill=CODE_TEXT)
 
     if closing_q:
         q_lines = wrap(d, closing_q, f_q, W - 2*margin)
