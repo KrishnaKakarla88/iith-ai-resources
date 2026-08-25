@@ -25,14 +25,11 @@ Does your serving stack implement paged KV-cache management?
 #AppliedAI #LLM #AIEngineering #GenAI
 
 --- VISUAL FORMAT ---
-single image
-- kicker: AI & LLM Basics
-- headline: Serving The KV Cache Like Virtual Memory
-- 1. The Problem — Reserves memory for worst-case length, mostly wasted.
-- 2. The Fix — Fixed-size blocks, allocated only as tokens generate.
-- 3. Block Table — Maps positions to scattered blocks, like OS memory.
-- 4. Continuous Batching — Requests join and leave a batch continuously.
-- footer code: block_table[request_id].append(allocate_free_block())
+carousel — 4 slides
+1. Title — "Serving The KV Cache Like Virtual Memory"
+2. Concept 1 — Fixed-Size Blocks, Allocated On Demand (diagram: New Token → Block Table → Free Block)
+3. Concept 2 — Block Table + Continuous Batching (code: block_table[request_id].append(allocate_free_block()))
+4. Takeaway — closing question
 
 --- SCHEDULE ---
 Wed 9/2: IG 6pm · LinkedIn 4pm

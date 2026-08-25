@@ -28,14 +28,14 @@ Short sentences, no filler, no hype words. But every line has to stand on its ow
 
 ## Ground Abstract Concepts With A Real Example
 
-An abstract mechanism (tokenization, an attention head, a decode step) reads as pure theory until it's tied to a concrete instance — a real word, a real number, a real snippet. Wherever a concept is genuinely abstract (not already concrete, like a code import), work in a short, real example rather than leaving the definition to stand alone. Pull the example from the source wiki page when it has one; invent a small, obviously-correct one (a real word split into real subword pieces, a real number plugged into a real formula) when it doesn't — never a vague placeholder like "some word" or "a sentence."
+An abstract mechanism (tokenization, an attention head, a decode step) reads as pure theory until it's tied to a concrete instance — a real word, a real number, a real snippet. Wherever a concept is genuinely abstract (not already concrete, like a code import), work in a short, real example rather than leaving the definition to stand alone. Pull the example from the source wiki page when it has one; invent a small, obviously-correct one (a real word split into real subword pieces, a real number plugged into a real formula) when it doesn't — never a vague placeholder like "some word" or "a sentence." Before finalizing a carousel, check each concept slide directly: a plugged-in instance, or only the mechanism stated in the abstract? This is a common miss, not an edge case — add one if it's missing.
 
-✓ "A tokenizer splits words into pieces. Example: **\"tokenization\"** splits into **\"token\"** + **\"ization\"**." — the example makes the mechanism concrete instead of asserted.
+✓ "A tokenizer splits words into pieces. **Example:** **\"tokenization\"** splits into **\"token\"** + **\"ization\"**." — concrete instead of asserted, and the label is bolded so it scans like the term labels around it.
 ✗ "A tokenizer splits words into subword pieces based on frequency." — technically correct, but a first-time reader has nothing to picture.
 
 ## Bold The Term Being Defined
 
-When a line defines or names something ("X is Y," "X: Y," a term-then-explanation pattern — including anything that started life as a wiki table row, e.g. Query/Key/Value or Prefill/Decode), wrap the term itself in `**double asterisks**` in `body_lines` so it renders bold against the regular-weight explanation. `carousel_template.py`'s `slide()` and `draw_rich_line()` parse `**bold**` spans inline (mixing bold and regular text on the same wrapped line); `single_image_template.py`'s `items` list already bolds each row's `name` automatically — no markup needed there. Don't bold whole sentences or every noun — only the specific term a reader should be able to scan for.
+When a line defines or names something ("X is Y," "X: Y," a term-then-explanation pattern — including anything that started life as a wiki table row, e.g. Query/Key/Value or Prefill/Decode) or labels a worked instance (`**Example:**`, `**Worked example:**`), wrap the term/label in `**double asterisks**` in `body_lines` so it renders bold against the regular-weight explanation — `slide()`/`draw_rich_line()` parse `**bold**` spans inline; `single_image_template.py`'s `items` already bolds each row's `name`, no markup needed there. Don't bold whole sentences or every noun — only what a reader should be able to scan for.
 
 ✓ "**Query** is what a token looks for. **Key** is what it offers others." — a reader scanning the slide can immediately find each term.
 ✗ "Query is what a token looks for. Key is what it offers others." — same content, but nothing helps the eye separate the terms from the prose.
@@ -48,7 +48,7 @@ Teach the concept plainly first — imports, syntax, how it fits, what it's for.
 
 1. **Concept teaching** (primary) — one concept, taught plainly, experience tacked on only if real.
 2. **Production tradeoff** (occasional) — real capstone/production decision or bug. Problem → decision → result. Experience leads.
-3. **Interview nugget** (occasional) — a real question actually faced + the real answer, in caveman form.
+3. **Interview nugget** (occasional) — a real question actually faced + the real answer, in caveman form. Must trace to an actual `_interview.md` entry (fire-round or "Harder" section) — never invent a question. If the wiki's real answer is multi-sentence/scenario-based, default to a short carousel (one question, full answer, per slide) instead of a single-image; reserve single-image for answers that are genuinely one line in the source.
 
 ❌ Hype, unfinished thoughts, forced anchors, syllabus recaps with no teaching value.
 
@@ -78,7 +78,12 @@ Abstract AI art reads as slop and teaches nothing. Use the bundled Pillow templa
 
 **Layout:** amber top bar → series label + slide counter → divider → kicker (topic-specific, never generic) → bold headline → amber underline → body → optional code block or bold closing question → navy bottom bar.
 
-**Slide count vs. item count:** one item per slide is not a rule — a single tool/term with only a line or two of content leaves a slide mostly blank. Group 2-3 related items onto one slide (stack them as sub-headlines or a labeled list in `body_lines`) instead of stretching thin content across too many slides. Keep one item per slide only when it genuinely needs its own code block or fuller explanation.
+**Slide count vs. item count:** one item per slide is not a rule — a single tool/term with only a line or two of content leaves a slide mostly blank. Group 2-3 related items onto one slide (stack them as sub-headlines or a labeled list in `body_lines`) instead of stretching thin content across too many slides. Keep one item per slide only when it genuinely needs its own code block or fuller explanation. A diagram slide (below) is one item's content, not a spot for the full prose paragraph too — a diagram plus one short line is enough.
+
+**Diagram over prose for spatial concepts.** When a concept is a pipeline (A happens, then B), a loop (perceive → decide → act → repeat), a layered stack (this sits on top of that), or a segmented budget (one fixed total split into named parts), draw it instead of describing it in a paragraph — reserve prose for genuinely non-spatial concepts (a definition, a tradeoff, a rule). `carousel_template.py` provides three helpers, each reserving a fixed height in the slide (no layout math needed), passed via `slide(..., diagram=(kind, payload))`:
+- `flow_diagram` / `("flow", [labels])` — boxes connected by arrows. Prefill→Decode, the agent loop, paging into blocks.
+- `stack_diagram` / `("stack", [labels])` — vertical stacked boxes, top to bottom. A layer stack (e.g. the agentic system stack).
+- `bar_diagram` / `("bar", (segments, dip_label))` — one bar split into proportional labeled segments; `dip_label` (or `None`) shades a callout band across the middle third. The context window's token budget; a "lost in the middle" callout.
 
 **Carousel hard cap: 7 slides total** (title + closing included, so ~5 content slides). This is a ceiling, not a target — group facts aggressively to fit under it rather than thinning content across more slides. Long lists (source page has more distinct facts than 5 content slides can each carry substantively) mean splitting into two posts, not stretching one carousel past 7.
 
@@ -86,7 +91,7 @@ Abstract AI art reads as slop and teaches nothing. Use the bundled Pillow templa
 
 **Files (bundled):**
 - `assets/fonts/` — Liberation Sans Bold, Regular, Mono (SIL Open Font License, bundled so this works on any machine without system font installs)
-- `carousel_template.py` → `slide()` per slide: slide_no, total, kicker, headline, body_lines, optional code/closing_q. Title slide = no code. Content slide = kicker "Role N"/"Step N" + code. Closing slide = kicker "Takeaway" + closing question.
+- `carousel_template.py` → `slide()` per slide: slide_no, total, kicker, headline, body_lines, optional code/closing_q/diagram. Title slide = no code. Content slide = kicker "Role N"/"Step N" + code (or diagram, see above). Closing slide = kicker "Takeaway" + closing question.
 - `single_image_template.py` → `single_image()`: headline + list of (name, description) + footer code line. Keep each item's `description` to roughly one line (~50-55 chars) — the template wraps and vertically centers automatically, but with 4-5 items a description that wraps to 2+ lines can still push past the footer code block. If a description needs more than one line to say something real, that item belongs in a carousel slide instead, not squeezed into a single-image row.
 
 Both scripts resolve fonts relative to their own file location (`assets/fonts/`) — no system font dependency, works wherever the skill folder is placed.

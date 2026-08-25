@@ -23,13 +23,12 @@ Which of these have you actually been asked?
 #AppliedAI #LLM #AIEngineering #GenAI
 
 --- VISUAL FORMAT ---
-single image
-- kicker: Interview Nugget
-- headline: Tokens & Cost: Questions That Actually Get Asked
-- 1. "40% over budget?" — 1 word ≈ 1 token is a rough average, not a rule. Measure it.
-- 2. "Same 128K, different price?" — Window size and per-token price are independent axes.
-- 3. Why pick a smaller window? — It forces discipline — caps cost and lost-in-the-middle risk.
-- footer code: litellm.token_counter(model=..., messages=messages)  # measure, don't guess
+carousel — 5 slides
+1. Title — "Tokens & Cost: Questions That Actually Get Asked"
+2. Question 1 — The 40% Over-Budget Estimate (code: litellm.token_counter(...))
+3. Question 2 — Same 128K, Different Price
+4. Question 3 — Why Pick A Smaller Window?
+5. Takeaway — closing question
 
 --- SCHEDULE ---
 Mon 9/21: IG 7pm · LinkedIn 10am

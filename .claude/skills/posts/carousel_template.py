@@ -104,7 +104,88 @@ def draw_rich_line(draw, x, y, line_words, font_reg, font_bold, fill):
             cx += draw.textlength(text, font=f)
         cx += space_w
 
-def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, closing_q=None, series="APPLIED AI ENGINEERING"):
+# --- diagrams: for spatial/mechanistic concepts (pipelines, loops, stacks,
+# segmented budgets) that read faster as a picture than as a paragraph.
+# Each helper draws into a fixed-height band and returns nothing; slide()
+# reserves DIAGRAM_H for whichever one is passed via `diagram=`. ---
+
+DIAGRAM_H = 260
+
+def _fit_text(draw, text, font_path, max_size, min_size, max_width):
+    size = max_size
+    font = ImageFont.truetype(font_path, size)
+    while size > min_size and draw.textlength(text, font=font) > max_width:
+        size -= 2
+        font = ImageFont.truetype(font_path, size)
+    return font
+
+def flow_diagram(draw, x, y, w, steps):
+    """Horizontal boxes connected by arrows: A -> B -> C.
+    steps: list of short label strings (2-5 items)."""
+    n = len(steps)
+    box_h = 100
+    gap = 46
+    box_w = (w - gap * (n - 1)) // n
+    by = y + (DIAGRAM_H - box_h) // 2
+    for i, label in enumerate(steps):
+        bx = x + i * (box_w + gap)
+        draw.rectangle([bx, by, bx + box_w, by + box_h], outline=NAVY, width=3)
+        f = _fit_text(draw, label, FONT_BOLD, 30, 16, box_w - 24)
+        tw = draw.textlength(label, font=f)
+        draw.text((bx + (box_w - tw) / 2, by + (box_h - f.size) / 2 - 4), label, font=f, fill=NAVY)
+        if i < n - 1:
+            ax0 = bx + box_w
+            ax1 = ax0 + gap
+            ay = by + box_h // 2
+            draw.line([(ax0 + 6, ay), (ax1 - 10, ay)], fill=AMBER, width=4)
+            draw.polygon([(ax1 - 10, ay - 9), (ax1, ay), (ax1 - 10, ay + 9)], fill=AMBER)
+
+def stack_diagram(draw, x, y, w, layers):
+    """Vertical stacked boxes, top to bottom, connected by short lines.
+    layers: list of short label strings (3-6 items), top of stack first."""
+    n = len(layers)
+    gap = 12
+    box_h = (DIAGRAM_H - gap * (n - 1)) // n
+    for i, label in enumerate(layers):
+        ly = y + i * (box_h + gap)
+        draw.rectangle([x, ly, x + w, ly + box_h], outline=NAVY, width=3)
+        draw.rectangle([x, ly, x + 10, ly + box_h], fill=AMBER)
+        f = _fit_text(draw, label, FONT_BOLD, 30, 16, w - 50)
+        draw.text((x + 26, ly + (box_h - f.size) / 2 - 4), label, font=f, fill=NAVY)
+        if i < n - 1:
+            cx = x + w // 2
+            draw.line([(cx, ly + box_h), (cx, ly + box_h + gap)], fill=AMBER, width=3)
+
+def bar_diagram(draw, x, y, w, segments, dip_label=None):
+    """One horizontal bar split into proportional labeled segments.
+    segments: list of (label, weight) — weight is relative share of the bar.
+    dip_label: optional label for a shaded band across the bar's middle third,
+    used for a 'lost in the middle' style callout instead of a real curve."""
+    bar_h = 90
+    by = y + 40
+    total = sum(wt for _, wt in segments)
+    bx = x
+    f_lab = ImageFont.truetype(FONT_REG, 22)
+    for label, wt in segments:
+        seg_w = int(w * wt / total)
+        draw.rectangle([bx, by, bx + seg_w, by + bar_h], outline=NAVY, width=3)
+        lw = draw.textlength(label, font=f_lab)
+        if lw <= seg_w - 10:
+            draw.text((bx + (seg_w - lw) / 2, by + bar_h + 14), label, font=f_lab, fill=NAVY)
+        bx += seg_w
+    if dip_label:
+        # shaded band across the bar's middle third, drawn as amber hatching
+        # (no alpha compositing needed — stays reliable regardless of draw backend)
+        dip_x0 = x + int(w * 0.33)
+        dip_x1 = x + int(w * 0.67)
+        for hx in range(dip_x0, dip_x1, 14):
+            draw.line([(hx, by), (hx, by + bar_h)], fill=(230, 190, 130), width=3)
+        draw.rectangle([dip_x0, by, dip_x1, by + bar_h], outline=AMBER, width=4)
+        f_dip = ImageFont.truetype(FONT_BOLD, 24)
+        dw = draw.textlength(dip_label, font=f_dip)
+        draw.text((dip_x0 + (dip_x1 - dip_x0 - dw) / 2, by + bar_h + 46), dip_label, font=f_dip, fill=AMBER)
+
+def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, closing_q=None, series="APPLIED AI ENGINEERING", diagram=None):
     img = Image.new("RGB", (W, H), WHITE)
     d = ImageDraw.Draw(img)
     margin = 80
@@ -139,6 +220,8 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
     content_h += 20 + 6 + 50  # underline gap + underline + gap after
     for wrapped in body_wrapped:
         content_h += len(wrapped) * 50 + 18
+    if diagram:
+        content_h += 24 + DIAGRAM_H
 
     # reserve space at the bottom for code block / closing question, if any
     if code:
@@ -169,6 +252,21 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
             draw_rich_line(d, margin, y, line, f_body, f_body_bold, NAVY)
             y += 50
         y += 18
+
+    # diagram - a picture in place of another paragraph, for pipeline/loop/
+    # stack/budget concepts (see SKILL.md "Diagram Over Prose For Spatial Concepts")
+    if diagram:
+        y += 24
+        kind, payload = diagram
+        if kind == "flow":
+            flow_diagram(d, margin, y, W - 2*margin, payload)
+        elif kind == "stack":
+            stack_diagram(d, margin, y, W - 2*margin, payload)
+        elif kind == "bar":
+            # payload is (segments, dip_label) — dip_label=None when there's no callout
+            segments, dip_label = payload
+            bar_diagram(d, margin, y, W - 2*margin, segments, dip_label=dip_label)
+        y += DIAGRAM_H
 
     # code block - pinned near bottom, dark bg like real code
     if code:
@@ -213,5 +311,28 @@ if __name__ == "__main__":
     slide("v2_s6.png", 6, 6, "Takeaway", "Get these four right",
           ["Multi-turn chat and agent flows", "stop feeling like guesswork."],
           closing_q="Which one trips you up \u2014 System or Tool?")
+
+    # diagram self-tests
+    slide("v3_flow.png", 2, 6, "Concept 1", "Two Phases, One Call",
+          ["**Prefill** processes the whole prompt in parallel.",
+           "**Decode** generates one token at a time after."],
+          diagram=("flow", ["Prompt In", "Prefill", "Decode", "Reply Out"]),
+          code="size = 2 * seq_len * n_layers * n_kv_heads * head_dim * bytes")
+
+    slide("v3_stack.png", 2, 5, "Reference Card", "The Agentic System Stack",
+          ["Five layers, bottom to top."],
+          diagram=("stack", ["Intake + Agent Loop", "Tools + RAG",
+                              "Memory + Orchestration", "Tracing + Guardrails",
+                              "Reliability + API Boundary"]))
+
+    slide("v3_bar.png", 2, 6, "Concept 1", "What Competes For The Budget",
+          ["Everything shares one fixed number of tokens."],
+          diagram=("bar", ([("System", 1), ("History", 3), ("Retrieved", 2),
+                             ("Input", 1), ("Reply", 1)], None)))
+
+    slide("v3_bar_dip.png", 3, 6, "Concept 2", "Lost In The Middle",
+          ["A fact placed mid-context gets attended to less reliably",
+           "than one near the start or end \u2014 even though it's in the window."],
+          diagram=("bar", ([("Start", 1), ("Middle", 2), ("End", 1)], "attention dips here")))
 
     print("done")

@@ -23,13 +23,12 @@ Which of these have you actually been asked?
 #AppliedAI #LLM #AIEngineering #GenAI
 
 --- VISUAL FORMAT ---
-single image
-- kicker: Interview Nugget
-- headline: Sampling & Determinism: Questions That Get Asked
-- 1. "temp=0 + seed=42 = deterministic?" — Both are best-effort. Test structure, not exact bytes.
-- 2. Does temperature help creative tasks? — Only if correctness isn't buried in the wrapper.
-- 3. Why does CoT hurt small models? — A bad early reasoning step compounds into a worse answer.
-- footer code: assert response.tool_calls[0].name == "expected_tool"
+carousel — 5 slides
+1. Title — "Sampling & Determinism: Questions That Actually Get Asked"
+2. Question 1 — "Fully Deterministic, Safe To Test"? (code: assert response.tool_calls[0].name == "expected_tool")
+3. Question 2 — When Does Temperature Hurt?
+4. Question 3 — Why CoT Can Hurt Small Models
+5. Takeaway — closing question
 
 --- SCHEDULE ---
 Tue 9/22: IG 5pm · LinkedIn 11am

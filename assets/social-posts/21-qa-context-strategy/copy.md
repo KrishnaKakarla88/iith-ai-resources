@@ -25,14 +25,13 @@ Prompt vs. context engineering — wording vs. everything in the window.
 #AppliedAI #LLM #AIEngineering #RAG #GenAI
 
 --- VISUAL FORMAT ---
-single image
-- kicker: Interview Nugget
-- headline: Context Strategy: Questions That Get Asked
-- 1. top_k 3 to 15 made answers worse? — Lost-in-the-middle. Check retrieval precision first.
-- 2. Prompt vs. context engineering? — One's wording. The other's everything in the window.
-- 3. "Just fine-tune the FAQ?" — FAQs change. Fine-tuning bakes in a snapshot that goes stale.
-- 4. 1M window isn't good news? — Removes the hard limit, not the quality-degradation one.
-- footer code: top_k = 3  # fewer, higher-precision chunks beat more, noisier ones
+carousel — 6 slides
+1. Title — "Context Strategy: Questions That Actually Get Asked"
+2. Question 1 — top_k 3→15 Made Answers Worse (code: top_k = 3  # fewer, higher-precision chunks beat more, noisier ones)
+3. Question 2 — Prompt vs. Context Engineering
+4. Question 3 — "Just Fine-Tune The FAQ?"
+5. Question 4 — Why A 1M Window Isn't Good News
+6. Takeaway — closing question
 
 --- SCHEDULE ---
 Wed 9/23: IG 6pm · LinkedIn 4pm
