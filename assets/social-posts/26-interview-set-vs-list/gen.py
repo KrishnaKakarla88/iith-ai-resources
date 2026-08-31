@@ -19,7 +19,7 @@ slide(p("slide-02.png"), 2, 5, "The Question", "Thousands Of IDs, One Check",
       code="if ticket_id in processed:  # looks fine... at first")
 
 slide(p("slide-03.png"), 3, 5, "The Problem", "O(n) Scan, Every Single Check",
-      ["in on a list scans linearly — the check gets slower as the list grows.",
+      ["**in** on a list scans linearly — the check gets slower as the list grows.",
        "Doing this per-ticket across thousands of tickets turns into O(n^2) total work."])
 
 slide(p("slide-04.png"), 4, 5, "The Fix", "Swap List For Set",
