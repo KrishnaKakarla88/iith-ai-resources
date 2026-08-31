@@ -34,7 +34,11 @@ markdown_extensions:
   - admonition
   - tables
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
 
 nav:
@@ -43,7 +47,11 @@ nav:
   - 00 AI & LLM Basics:
       - What is an LLM: 00-ai-and-llm-basics/what-is-an-llm.md
       - Tokens & Tokenization: 00-ai-and-llm-basics/tokens-and-tokenization.md
+      - Neural Network Fundamentals: 00-ai-and-llm-basics/neural-network-basics.md
+      - Transformer Architecture & Attention: 00-ai-and-llm-basics/transformer-architecture-and-attention.md
       - How LLMs Generate Text: 00-ai-and-llm-basics/how-llms-generate-text.md
+      - Prefill, Decode & KV Cache: 00-ai-and-llm-basics/prefill-decode-and-kv-cache.md
+      - PagedAttention & Efficient Serving: 00-ai-and-llm-basics/paged-attention-and-efficient-serving.md
       - Context Windows & Limits: 00-ai-and-llm-basics/context-windows-and-limits.md
       - Prompting Basics: 00-ai-and-llm-basics/prompting-basics.md
       - Prompt Engineering Techniques: 00-ai-and-llm-basics/prompt-engineering-techniques.md
@@ -143,3 +151,4 @@ nav:
       - "Round 3: Production & Reliability": 10-interview-preparation/round-3-production-reliability.md
       - "Round 4: Coding & Debugging": 10-interview-preparation/round-4-coding-and-debugging.md
       - "Round 5: Behavioral & Tradeoffs": 10-interview-preparation/round-5-behavioral-and-tradeoffs.md
+  - Changelog: changelog.md

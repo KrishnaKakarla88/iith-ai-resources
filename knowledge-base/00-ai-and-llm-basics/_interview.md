@@ -21,12 +21,42 @@
 - **Q: What's the practical difference between `temperature` and `top_p`?**
   A: Temperature reshapes the whole probability distribution (flatter or peakier); `top_p` instead truncates the distribution to its most-probable cumulative mass before sampling. They're two different levers on the same step — the lab's guidance is to tune one, not stack both.
 
+### neural-network-basics
+
+- **Q: What's the difference between a model's "parameters" and its "hyperparameters"?**
+  A: Parameters (weights and biases) are learned automatically during training. Hyperparameters (learning rate, number of layers, batch size, temperature at inference time) are set by whoever builds or runs the model — training doesn't learn these itself.
+- **Q: Why does a network need a nonlinear activation function at all — why not just sum the weights?**
+  A: Stacking purely linear layers (no nonlinearity) is mathematically equivalent to one single linear layer, no matter how many layers you stack — the nonlinearity is what lets a deep network represent genuinely complex, non-linear functions instead of collapsing into one big linear equation.
+
+### transformer-architecture-and-attention
+
+- **Q: What problem does self-attention solve that older sequence models (RNNs) struggled with?**
+  A: RNNs process tokens strictly in order, compressing everything seen so far into one running summary — information from early in a long sequence can get diluted by the time a later token needs it. Self-attention lets every token directly compare against every other token, regardless of distance, and it can also be computed in parallel rather than one step at a time.
+- **Q: What does "decoder-only" mean, and why do most current LLMs use it?**
+  A: Each token can only attend to itself and tokens before it, never tokens after — a hard architectural constraint (via attention masking). This matches exactly how generation works: predicting the next token given only what's been generated so far, so it's the natural fit for chat/completion models.
+
+### prefill-decode-and-kv-cache
+
+- **Q: Why does a long prompt slow down the start of a response, but a long *reply* slows down the rest of it?**
+  A: Prompt length drives prefill cost (compute-bound, parallel — determines time-to-first-token); reply length drives how many sequential decode steps happen (memory-bandwidth-bound, one token at a time). They're different phases with different bottlenecks.
+- **Q: What problem does the KV cache actually solve?**
+  A: Without it, generating token N would require recomputing Key/Value vectors for all N-1 prior tokens from scratch, every single step — the KV cache stores those vectors once and reuses them, so each decode step only computes K/V for the one new token.
+
+### paged-attention-and-efficient-serving
+
+- **Q: What two problems does naive, contiguous KV-cache allocation cause at serving scale?**
+  A: Over-reservation waste (each request reserves memory for the worst-case sequence length it might never reach) and fragmentation (free memory scattered in pieces too small or non-contiguous to satisfy a new request, even when total free memory would be enough).
+- **Q: What idea does PagedAttention borrow from operating systems?**
+  A: Virtual memory paging — fixed-size pages allocated on demand, tracked via a table that lets logical addresses map to scattered physical memory. PagedAttention pages the KV cache the same way: fixed-size blocks allocated per request as generation needs them, tracked via a per-request block table.
+
 ### context-windows-and-limits
 
 - **Q: Does a 1M-token context window mean you never have to think about context limits again?**
   A: No — it moves the ceiling further away, it doesn't remove it. A big-enough conversation with tools and retrieved content still fills it, and (per [[context-rot-and-long-context-management]]) quality can degrade well before the hard limit is reached.
 - **Q: Why does a 50-turn conversation cost noticeably more than a 2-turn one, given the same model?**
   A: Every turn resends the full history from turn 1 onward — there's no incremental "just the new part" billing. All of it is tokenized and billed again, every single call.
+- **Q: Roughly what fits inside a 1M-token context window, and does that mean size stops mattering?**
+  A: Roughly 750K words — a few-thousand-page book, or a mid-sized codebase. It means most single documents stop needing truncation on their own; it doesn't mean cost, latency, or context rot stop mattering, and it doesn't mean the KV cache the server holds for that request (see [[prefill-decode-and-kv-cache]]) gets any smaller just because the window fits everything.
 
 ### prompting-basics
 

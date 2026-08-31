@@ -24,7 +24,7 @@ A concrete shape of this: a user states an important rule in turn 1 ("always con
 |---|---|
 | Context rot | Measurable performance degradation as input length grows, distinct from simply running out of window — the content is present, but the model's effective use of it declines |
 | Lost-in-the-middle | A documented tendency for models to attend more reliably to content near the *start* or *end* of a long input than to content buried in the middle |
-| Attention dilution | The mechanical reason behind both: self-attention compares every token against every other token, so doubling the tokens in a request roughly quadruples that comparison surface — more content competing for the same attention budget, not a bug, an architectural property |
+| Attention dilution | The mechanical reason behind both: self-attention ([[transformer-architecture-and-attention]]) compares every token against every other token, so doubling the tokens in a request roughly quadruples that comparison surface — more content competing for the same attention budget, not a bug, an architectural property |
 | Needle-in-a-haystack testing | The standard way to measure this: plant a specific fact ("the needle") somewhere in a long context ("the haystack") and check whether the model can still retrieve it, varying both context length and needle position |
 | Multi-turn degradation | A related, separately documented failure mode: models can perform noticeably worse in long, multi-turn conversations than on the same information presented as one clean, single-turn prompt |
 
@@ -78,7 +78,7 @@ A long-running ShopSense support conversation is exactly the shape this concept 
 The labs never build a conversation long enough to demonstrate context rot directly — their conversations run a handful of turns. In production, systems that run for hours or accumulate long histories (exactly ShopSense's support-conversation shape) need this treated as an ongoing reliability concern: monitored via canary queries and long-context evals, not assumed away because "the window is big enough."
 
 ## Related
-- **Builds on** — [[context-windows-and-limits]], [[context-engineering]]
+- **Builds on** — [[context-windows-and-limits]], [[context-engineering]], [[transformer-architecture-and-attention]]
 - **Related** — [[context-compression]] (memory-specific compression mechanism; this page is the general concept it's one answer to)
 - **Feeds into** — [[hybrid-retrieval-rrf]] (retrieval as the primary defense: pull in only what's relevant, rather than everything)
 

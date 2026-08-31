@@ -32,6 +32,19 @@ A bigger window (some current models advertise context windows past a million to
 | `max_tokens` | A cap you set on the *reply length*, not the input — hitting it mid-generation ends the response early with `finish_reason="length"` instead of `"stop"`, a common source of truncated JSON or a cut-off answer |
 | Cost/latency scaling | `tokens/day = tokens-per-turn × turns-per-session × sessions-per-day`; cost follows the same multiplication against a per-token price — an untrimmed history compounds this on every single turn |
 
+## What actually fits in a 1M-token window
+
+Current-generation models increasingly advertise context windows around 1M tokens. Using the ~0.75 tokens-per-word / ~4-characters-per-token rule of thumb from [[tokens-and-tokenization]], that's roughly:
+
+| Scale | Rough token equivalent |
+|---|---|
+| ~750,000 words | 1M tokens (the base conversion) |
+| A ~3,000-page book, or several full novels back to back | ~750K-1M words |
+| A mid-sized codebase (tens of thousands of lines across hundreds of files) | code tokenizes less efficiently than prose (see [[tokens-and-tokenization]]), so the line-count equivalent is smaller than a pure word-count comparison suggests |
+| Many hours of transcribed meeting/call audio | transcripts run long relative to their spoken duration once formatted with speaker labels and timestamps |
+
+The practical read: at this size, a single document — a book, a large repo, a long transcript — mostly stops needing truncation on its own. That's genuinely useful. It does **not** mean the two costs described above (money, latency) or the quality cost covered in [[context-rot-and-long-context-management]] go away — a 1M-token window that's actually full still costs proportionally more to process than a mostly-empty one, and still suffers attention dilution over that much content. It also has a footprint the model provider has to hold, not just you: [[prefill-decode-and-kv-cache]] covers why a longer context means proportionally more KV-cache memory reserved on the serving side for the whole duration of your request — "the window is big enough" is a claim about what fits, not about what it costs to keep resident.
+
 ## Sample code
 
 Lab-sourced (`labs/Day1 Session 1 - Foundations of Reliable AI Agents.ipynb`) — the gotcha that shows the ceiling isn't just theoretical: a capped reply silently gets cut off rather than erroring loudly.
@@ -73,7 +86,7 @@ Milestone 1's provider-agnostic client has to account for context-window limits 
 The lab treats `max_tokens` mostly as a knob to demonstrate finish-reason behavior on a handful of calls. In production, context-window budgeting is a standing design decision — how much history to keep, how much retrieved content to allow, how much room to reserve for output — revisited continuously as conversations grow, not set once and forgotten. That budgeting problem is exactly what [[context-engineering]] and [[context-rot-and-long-context-management]] cover next.
 
 ## Related
-- **Builds on** — [[tokens-and-tokenization]], [[how-llms-generate-text]]
+- **Builds on** — [[tokens-and-tokenization]], [[how-llms-generate-text]], [[prefill-decode-and-kv-cache]]
 - **Feeds into** — [[context-engineering]], [[context-rot-and-long-context-management]], [[model-selection-cost-latency-tradeoffs]]
 
 ## Sources
@@ -87,3 +100,4 @@ The lab treats `max_tokens` mostly as a knob to demonstrate finish-reason behavi
 
 **Web sources**
 - [LiteLLM — Completion function docs](https://docs.litellm.ai/docs/completion/input) — `max_tokens`, `finish_reason` behavior across providers, accessed 2026-08-21
+- [Anthropic — Using Claude Code: session management and 1M context](https://claude.com/blog/using-claude-code-session-management-and-1m-context) — cited narrowly for its general framing ("a bigger window moves the wall, doesn't remove it"; attention/context-rot degradation as context grows), not for its Claude-Code-specific product mechanics, accessed 2026-08-24

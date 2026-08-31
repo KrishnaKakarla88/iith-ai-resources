@@ -39,5 +39,10 @@ Also check `/labs/production-notes.md` — extracted learnings from my earlier S
 ## Knowledge-base build plan
 `/plan.md` at the repo root is the source of truth for the `/knowledge-base/` revision-KB build (topic-first MkDocs reference derived from `lab-summaries/` + `presentations/`). Any future edits to that plan go there, not into a `~/.claude/plans/...` Plan Mode file.
 
+`/knowledge-base/changelog.md` tracks changes to the KB going forward — it's just a pointer so a reader knows content was added/changed and goes to check the current page, not an audit log. Keep every entry to: date, one line on what changed, files touched. No rationale, no "notable decisions" writeups, no prose — that detail belongs in `/plan.md`.
+
 ## Learning style
 Concise, example-driven, grounded in actual lab code. Low verbosity. 6-question quiz format when I ask to be tested, with score + weak-spot flag at the end.
+
+## Skill file edits
+When editing any `.claude/skills/*/SKILL.md`, stay concise — fold new content into existing sections/sentences rather than appending new headers or restating a rule already covered elsewhere in the file. Before finishing an edit pass, check for duplicated points across sections and merge them.

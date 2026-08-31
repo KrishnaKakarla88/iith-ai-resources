@@ -30,7 +30,7 @@ One fully-scripted teaching deck per day (both sessions merged, not per-session 
 
 ## File manifest
 
-The authoritative, always-current file list is `mkdocs.yml`'s `nav:` section — don't re-list it here, it drifts. As of 2026-08-21: 73 concept files (stages 00-09, each with one `_interview.md`) + 6 interview-prep files (stage 10) + `index.md` + `capstone-milestone-map.md` = 79 files, the full legal set of `[[wikilink]]` targets.
+The authoritative, always-current file list is `mkdocs.yml`'s `nav:` section — don't re-list it here, it drifts. As of 2026-08-24: 77 concept files (stages 00-09, each with one `_interview.md`) + 6 interview-prep files (stage 10) + `index.md` + `capstone-milestone-map.md` + `changelog.md` = 85 files, the full legal set of `[[wikilink]]` targets.
 
 Two things about the tree that aren't obvious from `mkdocs.yml` alone:
 - `07-orchestration/langchain/` and `07-orchestration/langgraph/` are the only subfolders — every other stage is flat.
@@ -44,6 +44,21 @@ A deliberate exception to the "concept-first, no day/session naming" stage patte
 2. Each stage's `_interview.md` got a `### Harder / real-interview-style` sub-section appended — new, web-researched, harder questions beyond the page-sourced Q&A already assembled there.
 
 Stage 10 itself has no `_interview.md` (it *is* the interview material) and is exempt from the standard 12-section template below — no Prerequisites/Alternatives scaffolding. Each round file carries as many well-organized, sub-sectioned questions as the topic supports, each with a full worked-answer sketch, so a candidate never needs to leave this KB to prep. `[[wikilink]]` back into the relevant 00-09 concept pages liberally; Sources can be a brief one-line note ("grounded in `lab-summaries/`, `presentations/day1-4.md`, and general LLM/agent-engineering interview practice as of 2026-08") rather than the full per-claim citation rigor of the concept-page template.
+
+## Stage 00 expansion — inference internals & neural-net/transformer fundamentals (added 2026-08-24)
+
+A gap-check against stage 00 found prefill, decode, KV cache, PagedAttention, and neural-network/transformer fundamentals entirely missing (self-attention had only a one-line O(n²) aside in `context-rot-and-long-context-management.md`). Four new pages were added to `00-ai-and-llm-basics/`, inserted between `tokens-and-tokenization.md` and `how-llms-generate-text.md`/`context-windows-and-limits.md` in this order: `neural-network-basics.md`, `transformer-architecture-and-attention.md`, `prefill-decode-and-kv-cache.md`, `paged-attention-and-efficient-serving.md`.
+
+Two deliberate departures from the rest of the KB, both scoped to just these 4 pages:
+
+- **First externally-sourced-only content.** None of these topics are covered in `labs/` or `presentations/dayN.md` — confirmed by an Explore pass and consistent with the Day → stage mapping above (nothing in day1-4 decks maps to inference-serving internals or neural-net basics). Every other page in this KB is grounded primarily in a lab/deck with web sources as backup; these 4 pages are grounded *only* in external references (Vaswani et al., Jay Alammar's Illustrated Transformer, Kwon et al.'s PagedAttention/vLLM paper, 3Blue1Brown). Their "Sample code" section says so explicitly, the same way `context-rot-and-long-context-management.md` already flags "no lab cell demonstrates this."
+- **First Mermaid diagrams in the KB.** `mkdocs.yml` gained a `mermaid` custom fence under the existing `pymdownx.superfences` config (mkdocs-material renders it natively, no new plugin dependency). Each of the 4 new pages carries one diagram. This is now the KB's image/diagram convention — prefer a Mermaid fence over adding a binary-asset folder for any future page needing a visual.
+
+`context-windows-and-limits.md` also gained a new "What actually fits in a 1M-token window" section (concrete, provider-neutral scale examples — word/page/codebase equivalents — explicitly not Claude Code product-feature framing), and its existing self-attention aside in `context-rot-and-long-context-management.md` now wikilinks into the new `transformer-architecture-and-attention.md` page instead of standing alone.
+
+## `changelog.md` — ongoing, dated build log (added 2026-08-24)
+
+A new top-level nav entry (`changelog.md`, placed after stage 10, outside the numbered stage sequence since it's meta/site-level, not a learning topic) tracks future changes to the KB going forward: one dated entry per change, listing what changed, which files, and the git commit hash once committed. Starts fresh from 2026-08-24 (this stage-00 expansion is its first entry) — no backfill of the KB's pre-changelog git history. Exempt from the standard 12-section template, same as stage 10.
 
 ## Per-file template (revised)
 
@@ -102,9 +117,9 @@ Full operational detail for each step lives in `.claude/skills/wiki/SKILL.md` (i
 
 No GitHub repo/remote, no GitHub Pages/Actions — local rendering only. No changes to `lab-summaries/*.md` beyond the one `pointers` line. No `log.md` ingest ledger — this KB is generated from fixed lab content, not continuously fed new sources. (Same list as `SKILL.md`'s guardrails — stated once here, referenced there.)
 
-## Status (last touch: 2026-08-21)
+## Status (last touch: 2026-08-24)
 
-All 7 Build steps complete across all 79 files (73 original + the 6-file `10-interview-preparation/` stage added post-generation). `uv run mkdocs build --strict` is clean; 0 broken wikilinks; 0 backtick-wrapped wikilinks or backtick-wrapped in-KB filenames (see `SKILL.md`'s `verify` section for both failure modes); no banned day/session strings outside legitimate Sources citations.
+All 7 Build steps complete across all 85 files (73 original + the 6-file `10-interview-preparation/` stage + the 4-file stage-00 inference-internals expansion + `changelog.md`, both added post-generation). `uv run mkdocs build --strict` is clean; 0 broken wikilinks; 0 backtick-wrapped wikilinks or backtick-wrapped in-KB filenames (see `SKILL.md`'s `verify` section for both failure modes); no banned day/session strings outside legitimate Sources citations.
 
 Notable fixes along the way:
 - `capstone-milestone-map.md`'s M1-M8 numbering was corrected to match each `lab-summaries/*.md`'s own "Capstone tie-in: Milestone N" line (the authoritative source, not `CLAUDE.md`'s build-order description) — every page's own "How this shows up in the capstone" section was reconciled against the corrected map in the same pass.
