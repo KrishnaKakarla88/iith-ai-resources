@@ -223,9 +223,14 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
     if diagram:
         content_h += 24 + DIAGRAM_H
 
-    # reserve space at the bottom for code block / closing question, if any
+    # reserve space at the bottom for code block / closing question, if any.
+    # code may be multiple lines (joined with "\n") for a real multi-line
+    # snippet — a single line keeps the original fixed 90px block unchanged.
     if code:
-        bottom_limit = H - 200 - 40
+        code_lines = code.split("\n")
+        code_h = 90 if len(code_lines) <= 1 else 56 + len(code_lines) * 40
+        code_y = H - 110 - code_h
+        bottom_limit = code_y - 40
     elif closing_q:
         q_lines = wrap(d, closing_q, f_q, W - 2*margin)
         bottom_limit = H - 100 - len(q_lines) * 42
@@ -268,22 +273,28 @@ def slide(filename, slide_no, total, kicker, headline, body_lines, code=None, cl
             bar_diagram(d, margin, y, W - 2*margin, segments, dip_label=dip_label)
         y += DIAGRAM_H
 
-    # code block - pinned near bottom, dark bg like real code
+    # code block - pinned near bottom, dark bg like real code.
+    # code_h/code_y were already computed above (before content_h/top were
+    # used to lay out everything above the block), so reuse them here.
     if code:
-        code_h = 90
-        code_y = H - 200
         d.rectangle([margin, code_y, W-margin, code_y+code_h], fill=CODE_BG)
         # fake window dots
         for i, cx in enumerate([margin+24, margin+44, margin+64]):
             d.ellipse([cx-6, code_y+16, cx+6, code_y+28], fill=(90,98,110))
-        # shrink font until the code line fits on one row inside the block
+        # shrink font until every code line fits on one row inside the block
         code_max_width = W - 2*margin - 48
         mono_size = 28
         f_mono = ImageFont.truetype(FONT_MONO, mono_size)
-        while mono_size > 14 and d.textlength(code, font=f_mono) > code_max_width:
+        while mono_size > 14 and max(d.textlength(l, font=f_mono) for l in code_lines) > code_max_width:
             mono_size -= 2
             f_mono = ImageFont.truetype(FONT_MONO, mono_size)
-        d.text((margin+24, code_y+45 - mono_size//2), code, font=f_mono, fill=CODE_TEXT)
+        if len(code_lines) <= 1:
+            d.text((margin+24, code_y+45 - mono_size//2), code, font=f_mono, fill=CODE_TEXT)
+        else:
+            cy = code_y + 40
+            for line in code_lines:
+                d.text((margin+24, cy), line, font=f_mono, fill=CODE_TEXT)
+                cy += 40
 
     if closing_q:
         q_lines = wrap(d, closing_q, f_q, W - 2*margin)
